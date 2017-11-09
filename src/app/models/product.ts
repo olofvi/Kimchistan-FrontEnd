@@ -1,26 +1,25 @@
-import { JsonApiModelConfig, JsonApiModel, Attribute, HasMany, BelongsTo } from 'angular2-jsonapi';
+import {JsonApiModelConfig, JsonApiModel, Attribute, HasMany, BelongsTo} from 'angular2-jsonapi';
 
 @JsonApiModelConfig({
-    type: 'products'
-  })
+  type: 'products'
+})
+export class Product extends JsonApiModel {
+  @Attribute()
+  name: string;
 
-  export class Product extends JsonApiModel {
-    @Attribute()
-    name: string;
+  @Attribute()
+  description: string;
 
-    @Attribute()
-    description: string;
+  @Attribute()
+  price: number;
 
-    @Attribute()
-    price: number;
+  @Attribute()
+  image: string
 
-    @Attribute()
-    image: string;
+  @Attribute()
+  type: string;
 
-    @Attribute()
-    type: string;
+  @Attribute()
+  status: boolean;
 
-    @Attribute()
-    status: boolean;
-
-  }
+}
