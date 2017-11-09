@@ -18,13 +18,7 @@ export class AppComponent {
   getProducts(): void {
     this.productService.getAll()
       .subscribe(products => {
-        console.log(products)
         this.products = products;
       });
-  }
-  showProduct(id): void {
-    this.productService.show(id).subscribe(product => {
-      console.log(product);
-    });
   }
 }
