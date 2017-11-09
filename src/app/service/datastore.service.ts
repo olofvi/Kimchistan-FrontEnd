@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { JsonApiDatastoreConfig, JsonApiDatastore, DatastoreConfig } from 'angular2-jsonapi';
 import { Http } from '@angular/http';
-import { Product } from '../models/product.ts'
+import { Product } from '../models/product';
 
 const config: DatastoreConfig = {
-  baseUrl: 'http://localhost:3000/v1/api',
+  baseUrl: 'http://localhost:3000/api/v1',
   models: {
     products: Product
   }

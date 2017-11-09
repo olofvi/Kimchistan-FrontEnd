@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { JsonApiModule } from 'angular2-jsonapi';
-import { Datastore } from './services/datastore.service';
-import { ProductService } from './services/product.service';
+import { Datastore } from './service/datastore.service';
+import { ProductService } from './service/product.service';
 
 import { AppComponent } from './app.component';
 
@@ -15,9 +15,11 @@ import { AppComponent } from './app.component';
     BrowserModule,
     JsonApiModule
   ],
-  providers: [],
-  Datastore,
+  providers: [
   ProductService,
+  Datastore
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
