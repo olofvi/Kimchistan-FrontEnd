@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
     JsonApiModule
   ],
   providers: [
-  ProductService,
+    ProductService,
     DatastoreService
   ],
 
