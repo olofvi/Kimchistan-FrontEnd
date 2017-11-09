@@ -16,4 +16,11 @@ import { JsonApiModelConfig, JsonApiModel, Attribute, HasMany, BelongsTo } from 
 
     @Attribute()
     image: string;
+
+    @Attribute()
+    type: string;
+
+    @Attribute()
+    status: boolean;
+
   }
