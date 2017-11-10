@@ -1,0 +1,8 @@
+div.col-md-4.centered {
+  text-align: center;
+}
+
+img.product_image {
+  width: 100%;
+  border-radius: 50%;
+}
