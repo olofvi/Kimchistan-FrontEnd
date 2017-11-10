@@ -3,6 +3,21 @@ div.col-md-4.centered {
 }
 
 img.product_image {
-  width: 100%;
+  width: 70%;
   border-radius: 50%;
+  cursor: pointer;
 }
+
+.large_product_image {
+  width: fill;
+  padding: 0px;
+}
+
+
+
+
+
+
+
+
+
