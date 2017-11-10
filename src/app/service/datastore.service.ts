@@ -4,7 +4,8 @@ import { Http } from '@angular/http';
 import { Product } from '../models/product';
 
 const config: DatastoreConfig = {
-  baseUrl: 'http://localhost:3000/api/v1',
+  baseUrl: 'http://localhost:3000/api',
+  apiVersion: '/v1',
   models: {
     products: Product
   }
