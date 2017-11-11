@@ -68,17 +68,11 @@ img.sidebar_image {
   color: black;
 }
 
-.header{
-  width: 100%;
-  height: auto;
-  background-color: ;
-  font-size: 25px;
-  overflow: auto;
-}
-
 .logo{
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  top: 15px;
 }
 agm-map {
   height: 300px;
