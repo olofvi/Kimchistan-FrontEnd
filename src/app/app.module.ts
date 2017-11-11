@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -18,6 +19,10 @@ import { AppComponent } from './app.component';
     JsonApiModule,
     NgbModule.forRoot() // for root module
     // NgbModule // for child module
+    JsonApiModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD_hlbV07PdNuEsXI13JQkTNLp2rp5kWos'
+    })
   ],
   providers: [
     ProductService,
