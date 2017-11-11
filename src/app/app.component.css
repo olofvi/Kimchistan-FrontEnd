@@ -55,6 +55,7 @@ img.product_image {
   color: black;
 }
 
+<<<<<<< HEAD
 .header{
   width: 100%;
   height: auto;
@@ -67,3 +68,8 @@ img.product_image {
   width:200px;
   height:200px;
 }
+=======
+agm-map {
+  height: 300px;
+}
+>>>>>>> a368204437bdc0ab5080aa02f148a21bb7240bdf
