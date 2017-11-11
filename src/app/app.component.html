@@ -20,19 +20,15 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
+    <img class="salad_image" src={{products[6].image}}/>
     <div ngbDropdown class="d-inline-block">
       <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Salad</button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <div *ngFor="let product of products">
           <div *ngIf="product.type == 'salad'">
-            <option>{{product.name}}</option>
+            <button>{{product.name}}</button>
           </div>
         </div>
-        -->
       </div>
     </div>
   </div>

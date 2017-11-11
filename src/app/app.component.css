@@ -13,6 +13,11 @@ img.product_image {
   border-radius: 50%;
 }
 
+.img.salad_image {
+  width: 10%;
+  border-radius: 10%;
+}
+
 .btn.btn-primary {
   margin: 10px;
   color: black;
