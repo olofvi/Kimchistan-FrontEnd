@@ -10,7 +10,7 @@
           <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Protein</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <div *ngFor="let ingredient of product.ingredients">
-              <button>{{ingredient.name}}</button>
+              <button (click)="addToCart(product, ingredient)">{{ingredient.name}}</button>
             </div>
           </div>
         </div>

@@ -11,6 +11,7 @@ export class AppComponent {
   products: Product[];
   lat: number = 59.334248;
   lng: number = 18.063829;
+  cart: any = [];
 
 
   constructor(private productService: ProductService) {
@@ -22,5 +23,10 @@ export class AppComponent {
       .subscribe(products => {
         this.products = products;
       });
+  }
+
+  addToCart(product, ingredient) {
+    this.cart.push({product, ingredient});
+    console.log(this.cart);
   }
 }
