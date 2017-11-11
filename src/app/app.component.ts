@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from './models/product';
 import { ProductService } from './service/product.service';
+import { MapService} from './service/map.service';
 
 @Component({
   selector: 'app-root',
