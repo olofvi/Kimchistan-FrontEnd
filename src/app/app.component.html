@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-4 centered" *ngFor="let product of products">
       <h1>{{product.name}} {{product.price}}:-</h1>
-      <img class="product_image" data-toggle="modal" data-target="#productModal" src={{product.image}} />
-      <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productCloseup" aria-hidden="true">
+      <img class="product_image" data-toggle="modal" attr.data-target="#productModal{{product.id}}" src={{product.image}} />
+      <div class="modal fade" id="productModal{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="productCloseup" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <button type="button" class="close" aria-label="Close" data-dismiss="modal">
             <span aria-hidden="true">&times;</span>
