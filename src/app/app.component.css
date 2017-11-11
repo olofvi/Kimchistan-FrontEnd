@@ -10,10 +10,19 @@ img.product_image {
 
 .large_product_image {
   width: fill;
+  border-radius: 50%;
 }
 
 .btn.btn-primary {
   margin: 10px;
+  color: black;
+  background-color: white;
+  border: none;
+}
+
+.btn.btn-primary:hover {
+  color: white;
+  background-color: black;
 }
 
 .modal-dialog{
@@ -25,6 +34,7 @@ img.product_image {
 .product-description {
   text-align: left;
   padding: 10px;
+  color: white;
 }
 
 #img_container {
@@ -35,7 +45,12 @@ img.product_image {
 .close {
   position:absolute;
   top: 0px;
-  right: 3px;
+  right: 10px;
   font-size: 400%;
-  line-height: 0.5;
+  color: white;
+  opacity: .9
+}
+
+.close:hover{
+  color: black;
 }

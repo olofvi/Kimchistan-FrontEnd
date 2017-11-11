@@ -5,16 +5,14 @@
       <img class="product_image" data-toggle="modal" data-target="#productModal" src={{product.image}} />
       <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productCloseup" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <button type="button" class="close" aria-label="Close" data-dismiss="modal">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <img class="img-responsive large_product_image" src={{product.image}} alt="Product Image" />
-              <div class="product-description">
-              {{product.description}}
-              </div>
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <img class="img-responsive large_product_image" src={{product.image}} alt="Product Image" />
+          <div class="product-description">
+            {{product.description}}
           </div>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
