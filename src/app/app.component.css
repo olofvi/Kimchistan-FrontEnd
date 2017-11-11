@@ -13,6 +13,10 @@ img.product_image {
   border-radius: 50%;
 }
 
+.img.sidebar_image {
+  width: 10%;
+}
+
 .btn.btn-primary {
   margin: 10px;
   color: black;
