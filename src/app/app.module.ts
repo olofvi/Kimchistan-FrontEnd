@@ -17,7 +17,7 @@ import { AgmCoreModule } from '@agm/core';
   imports: [
     BrowserModule,
     JsonApiModule,
-    NgbModule.forRoot() // for root module
+    NgbModule.forRoot(), // for root module
     // NgbModule // for child module
     JsonApiModule,
     AgmCoreModule.forRoot({
