@@ -9,7 +9,7 @@ img.product_image {
 }
 
 .large_product_image {
-  width: fill;
+  width: stretch;
   border-radius: 50%;
 }
 

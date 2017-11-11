@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { JsonApiModule } from 'angular2-jsonapi';
 import { DatastoreService } from './service/datastore.service';
 import { ProductService } from './service/product.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppComponent } from './app.component';
 
@@ -13,7 +15,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    JsonApiModule
+    JsonApiModule,
+    NgbModule.forRoot() // for root module
+    // NgbModule // for child module
   ],
   providers: [
     ProductService,
