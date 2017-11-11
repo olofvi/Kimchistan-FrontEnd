@@ -9,10 +9,8 @@ import { ProductService } from './service/product.service';
 })
 export class AppComponent {
   products: Product[];
-  title: string = 'My first AGM project';
   lat: number = 59.334248;
   lng: number = 18.063829;
-
 
 
   constructor(private productService: ProductService) {
