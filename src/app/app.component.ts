@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from './models/product';
 import { ProductService } from './service/product.service';
-import { MapService} from './service/map.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,11 @@ import { MapService} from './service/map.service';
 })
 export class AppComponent {
   products: Product[];
-  title = 'Products';
+  title: string = 'My first AGM project';
+  lat: number = 59.334248;
+  lng: number = 18.063829;
+
+
 
   constructor(private productService: ProductService) {
     this.getProducts();

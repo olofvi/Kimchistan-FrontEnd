@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { JsonApiModule } from 'angular2-jsonapi';
 import { DatastoreService } from './service/datastore.service';
 import { ProductService } from './service/product.service';
-import { MapService} from './service/map.service';
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 
@@ -16,13 +15,12 @@ import { AgmCoreModule } from '@agm/core';
     BrowserModule,
     JsonApiModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCyPHXzLMoPazrF86EJhXjlSL9LA8V9YzY'
+      apiKey: 'AIzaSyD_hlbV07PdNuEsXI13JQkTNLp2rp5kWos'
     })
   ],
   providers: [
     ProductService,
-    DatastoreService,
-    MapService
+    DatastoreService
   ],
 
   bootstrap: [AppComponent]
