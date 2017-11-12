@@ -1,66 +1,49 @@
-<div class="body">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <img class="logo" src="../assets/kimchistan.jpg">
-      </div>
-    </div>
-    <div class="header-text">
-      <h5> Öpet: Mån-Fre 11-19</h5>
-      <h5> Lördag: 12-17 </h5>
-      <h5> Beställningar: 11-18:30 </h5>
-      <h5> Lördag: 12-16:30 </h5>
-    </div>
-  </nav>
-  <br>
-  <br>
-  <div class="container-fluid">
+
+  <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-4 centered">
         <img class="sidedish_image"
              src="http://www.proof.lentils.ca/sites/lentils.ca/files/img/recipe/Kimchi%2B%2526%2BRice%2BNoodle%2BSalad.jpg"/>
         <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Salad</button>
+          <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Salad</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <div *ngFor="let product of products">
               <div *ngIf="product.type == 'salad'">
-                <button type="button" class="btn-success bt-sm">{{product.name}}</button>
+                <button type="button" class="dropdown-item">{{product.name}}</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4 centered">
         <img class="sidedish_image"
              src="https://2sn41a469dba1rttrr2imjjp-wpengine.netdna-ssl.com/wp-content/uploads/2014/11/Soft-Drinks.jpg"/>
         <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose a drink</button>
+          <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Choose a drink</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <div *ngFor="let product of products">
               <div *ngIf="product.type == 'drink'">
-                <button type="button" class="btn btn-info bt-sm">{{product.name}}</button>
+                <button type="button" class="dropdown-item">{{product.name}}</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   <br>
   <br>
-  <div class="container">
     <div class="row">
       <div class="col-md-4 centered" *ngFor="let product of products">
         <div *ngIf="product.type == 'dish'">
-          <h1>{{product.name}} {{product.price}}:-</h1>
+          <h3>{{product.name}} {{product.price}}:-</h3>
           <img class="product_image" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
                src={{product.image}}/>
           <br>
           <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Protein</button>
+            <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Protein</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <div *ngFor="let ingredient of product.ingredients">
-                <button type="button" class="btn btn-link">{{ingredient.name}}</button>
+                <button class="dropdown-item">{{ingredient.name}}</button>
               </div>
             </div>
           </div>
@@ -86,4 +69,3 @@
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
     <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../assets/circle.png'"></agm-marker>
   </agm-map>
-</div>
