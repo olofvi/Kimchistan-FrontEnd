@@ -1,20 +1,30 @@
+.body {
+  background-image: url('../assets/background.jpg');
+  image-resolution: from-image;
+}
+
 div.col-md-4.centered {
   text-align: center;
 }
 
+div.col-md-3 {
+  text-align: center;
+}
+
 img.product_image {
-  width: 70%;
+  width: 100%;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .large_product_image {
-  width: stretch;
+  width: 150%;
   border-radius: 50%;
 }
 
-.img.sidebar_image {
-  width: 10%;
+img.sidedish_image {
+  width: 100%;
+  border-radius: 50%;
 }
 
 .btn.btn-primary {
@@ -59,6 +69,25 @@ img.product_image {
   color: black;
 }
 
+.logo{
+  width: 300px;
+  height: 300px;
+  position: relative;
+  top: 15px;
+}
 agm-map {
   height: 300px;
+}
+
+.header-text {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 18px;
+}
+
+.navbar-default {
+  background-image: url('../assets/background.jpg');
+  background-size: cover;
+  height: 350px;
 }
