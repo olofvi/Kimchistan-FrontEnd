@@ -1,5 +1,6 @@
 .body {
-  background-color: #FBFBFB;
+  background-image: url('../assets/background.jpg');
+  image-resolution: from-image;
 }
 
 div.col-md-4.centered {
@@ -86,7 +87,7 @@ agm-map {
 }
 
 .navbar-default {
-  background-image: url('../assets/flatlays.jpg');
+  background-image: url('../assets/background.jpg');
   background-size: cover;
   height: 350px;
 }
