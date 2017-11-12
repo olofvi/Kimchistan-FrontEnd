@@ -8,11 +8,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
+import { StripeFormComponent } from './stripe-form/stripe-form.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StripeFormComponent
   ],
   imports: [
     BrowserModule,
