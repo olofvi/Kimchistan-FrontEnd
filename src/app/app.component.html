@@ -1,6 +1,7 @@
  <div class="container">
     <div class="row">
       <div class="col-md-4 centered">
+        <h3>Sallad</h3>
         <img class="sidedish_image"
              src="http://www.proof.lentils.ca/sites/lentils.ca/files/img/recipe/Kimchi%2B%2526%2BRice%2BNoodle%2BSalad.jpg"/>
         <div ngbDropdown class="d-inline-block">
@@ -15,6 +16,7 @@
         </div>
       </div>
       <div class="col-md-4 centered">
+        <h3>Dryck</h3>
         <img class="sidedish_image"
              src="https://2sn41a469dba1rttrr2imjjp-wpengine.netdna-ssl.com/wp-content/uploads/2014/11/Soft-Drinks.jpg"/>
         <div ngbDropdown class="d-inline-block">
@@ -28,13 +30,9 @@
           </div>
         </div>
       </div>
-    </div>
-  <br>
-  <br>
-    <div class="row">
       <div class="col-md-4 centered" *ngFor="let product of products">
         <div *ngIf="product.type == 'dish'">
-          <h3>{{product.name}} {{product.price}}:-</h3>
+          <h3>{{product.name}}</h3>
           <img class="product_image" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
                src={{product.image}}/>
           <br>
