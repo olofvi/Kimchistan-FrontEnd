@@ -5,10 +5,6 @@ import {Injectable} from '@angular/core';
 export class ShoppingCartService {
   cart: any = [];
 
-  // getCart(){
-  //   return Promise.resolve(this.cart);
-  // };
-
   addToCart(p_id: string, p_name: string, price: number, i_id: string, i_name: string) {
 
     this.cart.push({
@@ -21,12 +17,4 @@ export class ShoppingCartService {
     alert(`${p_name} added to cart`);
     console.log(this.cart);
   };
-
-// removeCart(searchId: string) {
-//   let tmp = this.cart.map(x => x.id).indexOf(searchId);
-//
-//   if (tmp > 1) {
-//     this.cart.splice)tmp,1);
-//   };
-// };
 }
