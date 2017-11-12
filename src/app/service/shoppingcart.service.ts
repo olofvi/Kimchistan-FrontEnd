@@ -14,7 +14,6 @@ export class ShoppingCartService {
       'ingredient id': i_id,
       'ingredient name': i_name
     });
-    alert(`${p_name} added to cart`);
     console.log(this.cart);
   };
 }

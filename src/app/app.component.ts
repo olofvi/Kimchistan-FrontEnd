@@ -31,7 +31,7 @@ export class AppComponent {
       this.cartSVC.addToCart(p_id, p_name, price, i_id, i_name);
     } else {
       let price = p_price;
-      this.cartSVC.addToCart(p_id, p_name, price);
+      this.cartSVC.addToCart(p_id, p_name, price, i_id, i_name);
     }
 
   }
