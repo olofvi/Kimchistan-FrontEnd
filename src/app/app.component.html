@@ -36,7 +36,7 @@
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <div *ngFor="let product of products">
           <div *ngIf="product.type == 'salad'">
-            <button>{{product.name}}</button>
+            <button (click)="addToCart(product)">{{product.name}}</button>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <div *ngFor="let product of products">
           <div *ngIf="product.type == 'drink'">
-            <button>{{product.name}}</button>
+            <button (click)="addToCart(product)">{{product.name}}</button>
           </div>
         </div>
       </div>
