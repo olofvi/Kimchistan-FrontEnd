@@ -1,11 +1,10 @@
-
-  <div class="container">
+ <div class="container">
     <div class="row">
       <div class="col-md-4 centered">
         <img class="sidedish_image"
              src="http://www.proof.lentils.ca/sites/lentils.ca/files/img/recipe/Kimchi%2B%2526%2BRice%2BNoodle%2BSalad.jpg"/>
         <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Salad</button>
+          <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Välj Sallad</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <div *ngFor="let product of products">
               <div *ngIf="product.type == 'salad'">
@@ -19,7 +18,7 @@
         <img class="sidedish_image"
              src="https://2sn41a469dba1rttrr2imjjp-wpengine.netdna-ssl.com/wp-content/uploads/2014/11/Soft-Drinks.jpg"/>
         <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Choose a drink</button>
+          <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Välj Dryck</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <div *ngFor="let product of products">
               <div *ngIf="product.type == 'drink'">
@@ -40,7 +39,7 @@
                src={{product.image}}/>
           <br>
           <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Protein</button>
+            <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Välj Protein</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <div *ngFor="let ingredient of product.ingredients">
                 <button class="dropdown-item">{{ingredient.name}}</button>
@@ -58,7 +57,7 @@
               <div class="product-description">
                 {{product.description}}
               </div>
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Stäng</button>
             </div>
           </div>
         </div>
