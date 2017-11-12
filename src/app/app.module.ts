@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { JsonApiModule } from 'angular2-jsonapi';
 import { DatastoreService } from './service/datastore.service';
 import { ProductService } from './service/product.service';
+import { ShoppingCartService } from './service/shoppingcart.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -12,7 +13,8 @@ import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { AgmCoreModule } from '@agm/core';
   ],
   providers: [
     ProductService,
-    DatastoreService
+    DatastoreService,
+    ShoppingCartService
   ],
 
   bootstrap: [AppComponent]
