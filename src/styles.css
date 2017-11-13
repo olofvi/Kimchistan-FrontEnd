@@ -3,6 +3,7 @@
   background: rgba(0,0,0,.7);
   padding-top: 40px;
   padding-bottom: 20px;
+  text-align: center;
 }
 
 .footer-text {
@@ -44,6 +45,29 @@ a:link {
 }
 
 a:link:hover {
+  color: darkred;
+  text-decoration: none;
+}
+
+a:visited {
+  color: darkred;
+  text-decoration: none;
+}
+
+a:active {
+  color: darkred;
+  text-decoration: none;
+}
+
+a:focus{
+  color:darkred;
+}
+
+i {
+  color: red;
+}
+
+i:hover {
   color: darkred;
   text-decoration: none;
 }

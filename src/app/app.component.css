@@ -4,7 +4,7 @@ div.col-md-4.centered {
 }
 
 img.product_image {
-  width: 90%;
+  width: 60%;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -15,7 +15,7 @@ img.product_image {
 }
 
 img.sidedish_image {
-  width: 90%;
+  width: 60%;
   border-radius: 50%;
 }
 
@@ -35,6 +35,10 @@ img.sidedish_image {
 
 button.dropdown-item {
   cursor: pointer;
+}
+
+button {
+  align: center;
 }
 
 button.dropdown-item:hover {
