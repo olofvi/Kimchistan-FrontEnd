@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from './models/product';
+import { Payment} from "./models/payment";
 import { ProductService } from './service/product.service';
 import { PaymentService} from "./service/payment.service";
 import { ShoppingCartService } from './service/shoppingcart.service';
@@ -11,6 +12,7 @@ import { ShoppingCartService } from './service/shoppingcart.service';
 })
 export class AppComponent {
   products: Product[];
+  payments: Payment[];
   lat: number = 59.334248;
   lng: number = 18.063829;
 
