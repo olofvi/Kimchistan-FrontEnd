@@ -28,6 +28,10 @@ nav.navbar.navbar-default {
   padding: 0px;
 }
 
+nav {
+  background-image: url('/assets/flatlays.jpg');
+}
+
 .logo{
   width: 300px;
   height: 300px;
