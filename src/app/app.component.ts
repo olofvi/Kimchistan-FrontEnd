@@ -23,19 +23,4 @@ export class AppComponent {
         this.products = products;
       });
   }
-
-    openCheckout() {
-      const handler = (<any>window).StripeCheckout.configure({
-        key: 'pk_test_tzGL0gkTTfi6MspvJQhEo6Hq',
-        locale: 'auto',
-        token: function (token: any) {
-        }
-      });
-
-      handler.open({
-        name: 'Kimchistan',
-        amount: 2000
-      });
-
-    }
 }

@@ -8,17 +8,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
-import { StripeFormComponent } from './stripe-form/stripe-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    StripeFormComponent
+
   ],
   imports: [
     BrowserModule,
-    JsonApiModule,
     NgbModule.forRoot(), // for root module
     // NgbModule // for child module
     JsonApiModule,
