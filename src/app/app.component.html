@@ -35,11 +35,12 @@
               <div *ngIf="product.available == true">
                 <button type="button" class="dropdown-item"
                         (click)="addProduct(product.id, product.name, product.price)">
-                  {{product.name}}
+                  {{product.name}} ({{product.price}} kr)
                 </button>
               </div>
               <div *ngIf="product.available == false">
-                <button type="button" class="dropdown-item disabled" id="disabled_{{product.name}}">{{product.name}}
+                <button type="button" class="dropdown-item disabled" id="disabled_{{product.name}}">
+                  {{product.name}} ({{product.price}} kr)
                 </button>
               </div>
             </div>
@@ -59,11 +60,13 @@
             <div *ngIf="product.type == 'drink'">
               <div *ngIf="product.available == true">
                 <button type="button" class="dropdown-item"
-                        (click)="addProduct(product.id, product.name, product.price)">{{product.name}}
+                        (click)="addProduct(product.id, product.name, product.price)">
+                  {{product.name}} ({{product.price}} kr)
                 </button>
               </div>
               <div *ngIf="product.available == false">
-                <button type="button" class="dropdown-item disabled" id="disabled_{{product.name}}">{{product.name}
+                <button type="button" class="dropdown-item disabled" id="disabled_{{product.name}}">
+                  {{product.name}} ({{product.price}} kr)
                 </button>
               </div>
             </div>
@@ -84,12 +87,12 @@
               <div *ngIf="ingredient.available == true">
                 <button class="dropdown-item" id="{{product.name}}_{{ingredient.name}}"
                         (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, ingredient.price)">
-                  {{ingredient.name}}
+                  {{ingredient.name}} ({{ingredient.price + product.price}} kr)
                 </button>
               </div>
               <div *ngIf="ingredient.available == false">
                 <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
-                  {{ingredient.name}}
+                  {{ingredient.name}} ({{ingredient.price + product.price}} kr)
                 </button>
               </div>
             </div>
