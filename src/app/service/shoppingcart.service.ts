@@ -8,11 +8,11 @@ export class ShoppingCartService {
   addToCart(p_id: string, p_name: string, price: number, i_id: string, i_name: string) {
 
     this.cart.push({
-      'product id': p_id,
-      'product name': p_name,
+      'product_id': p_id,
+      'product_name': p_name,
       'price': Number(price),
-      'ingredient id': i_id,
-      'ingredient name': i_name
+      'ingredient_id': i_id,
+      'ingredient_name': i_name
     });
     console.log(this.cart);
   };
