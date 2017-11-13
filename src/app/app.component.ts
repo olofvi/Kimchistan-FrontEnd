@@ -25,19 +25,17 @@ export class AppComponent {
   }
 
     openCheckout() {
-      var handler = (<any>window).StripeCheckout.configure({
+      const handler = (<any>window).StripeCheckout.configure({
         key: 'pk_test_tzGL0gkTTfi6MspvJQhEo6Hq',
         locale: 'auto',
         token: function (token: any) {
-          // You can access the token ID with `token.id`.
-          // Get the token ID to your server-side code for use.
         }
       });
-  
+
       handler.open({
         name: 'Kimchistan',
         amount: 2000
       });
-  
+
     }
 }
