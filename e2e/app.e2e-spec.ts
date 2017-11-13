@@ -21,7 +21,7 @@ describe('kimchistan-front-end App', () => {
   it('should verify that dropdown is working', function () {
     browser.waitForAngular();
     var dropdownCategories = element(by.id('dropdown_Bibimbap'));
-    expect(dropdownCategories.getText()).toBe('Choose Protein');
+    expect(dropdownCategories.getText()).toBe('Välj Protein');
     dropdownCategories.click().then(function () {
       browser.waitForAngular();
       browser.sleep(1000).then(function () {

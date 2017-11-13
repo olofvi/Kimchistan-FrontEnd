@@ -26,13 +26,13 @@ export class AppComponent {
   }
 
   addProduct(p_id: string, p_name: string, p_price: number, i_id: string, i_name: string, i_price: number) {
+    let price: number;
     if (i_price) {
-      let price = p_price + i_price;
-      this.cartSVC.addToCart(p_id, p_name, price, i_id, i_name);
+      price = p_price + i_price;
     } else {
-      let price = p_price;
-      this.cartSVC.addToCart(p_id, p_name, price, i_id, i_name);
+      price = p_price;
     }
+    this.cartSVC.addToCart(p_id, p_name, price, i_id, i_name);
 
   }
 }

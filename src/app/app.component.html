@@ -1,89 +1,126 @@
-<div class="body">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <img class="logo" src="../assets/kimchistan.jpg">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img class="logo" src="/assets/kimchistan.jpg">
+    </div>
+  </div>
+  <div class="header-text">
+    <div class="row row-bottom-margin">
+      <div class="col">
+        <h5>Mån-Fre 11-19</h5>
+        <h5>Lör: 12-16.30</h5>
+        <h5>Beställ mellan 11-18:30</h5>
+      </div>
+      <div class="col">
+        <h5>Beställ så här:</h5>
+        <h5>Välj mat & dryck i dropdown-menyerna</h5>
+        <h5>Lägg beställningen högst upp på sidan</h5>
+        <h5>Hämta beställingen efter 30 minuter</h5>
       </div>
     </div>
-    <div class="header-text">
-      <h5> Öpet: Mån-Fre 11-19</h5>
-      <h5> Lördag: 12-17 </h5>
-      <h5> Beställningar: 11-18:30 </h5>
-      <h5> Lördag: 12-16:30 </h5>
-    </div>
-  </nav>
-  <br>
-  <br>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3">
-        <img class="sidedish_image"
-             src="http://www.proof.lentils.ca/sites/lentils.ca/files/img/recipe/Kimchi%2B%2526%2BRice%2BNoodle%2BSalad.jpg"/>
-        <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-outline-primary" id="dropdown_salad" ngbDropdownToggle>Choose Salad</button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <div *ngFor="let product of products">
-              <div *ngIf="product.type == 'salad'">
-                <button type="button" class="btn-success bt-sm" (click)="addProduct(product.id, product.name, product.price)">{{product.name}}</button>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 centered">
+      <h3>Sallad</h3>
+      <img class="sidedish_image"
+           src="https://www.kitchensanctuary.com/wp-content/uploads/2017/02/Korean-Beef-Bulgogi-Bowl-recipe-square-FS.jpg"/>
+      <br>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-primary" id="dropdown_salad" ngbDropdownToggle>Välj Sallad</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <div *ngFor="let product of products">
+            <div *ngIf="product.type == 'salad'">
+              <div *ngIf="product.available == true">
+                <button type="button" class="dropdown-item"
+                        (click)="addProduct(product.id, product.name, product.price)">
+                  {{product.name}}
+                </button>
+              </div>
+              <div *ngIf="product.available == false">
+                <button type="button" class="dropdown-item disabled" id="disabled_{{product.name}}">{{product.name}}
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4 centered">
+        <h3>Dryck</h3>
         <img class="sidedish_image"
-             src="https://2sn41a469dba1rttrr2imjjp-wpengine.netdna-ssl.com/wp-content/uploads/2014/11/Soft-Drinks.jpg"/>
+             src="https://pbs.twimg.com/profile_images/770467680012890112/kSz1jtnn.jpg"/>
+        <br>
         <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-outline-primary" id="dropdown_drinks" ngbDropdownToggle>Choose a drink</button>
+          <button class="btn btn-primary" id="dropdown_drinks" ngbDropdownToggle>Välj Dryck</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <div *ngFor="let product of products">
               <div *ngIf="product.type == 'drink'">
-                <button type="button" class="btn btn-info bt-sm" (click)="addProduct(product.id, product.name, product.price)">{{product.name}}</button>
+                <div *ngIf="product.available == true">
+                  <button type="button" class="dropdown-item"
+                          (click)="addProduct(product.id, product.name, product.price)">{{product.name}}
+                  </button>
+                </div>
+                <div *ngIf="product.available == false">
+                  <button type="button" class="dropdown-item disabled" id="disabled_{{product.name}}">{{product.name}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 centered" *ngFor="let product of products">
+          <div *ngIf="product.type == 'dish'">
+            <h3>{{product.name}}</h3>
+            <img class="product_image" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
+                 src={{product.image}}/>
+            <br>
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-primary" id="dropdown_{{product.name}}" ngbDropdownToggle>Välj Protein</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <div *ngFor="let ingredient of product.ingredients">
+                  <div *ngIf="ingredient.available == true">
+                    <button class="dropdown-item" id="{{product.name}}_{{ingredient.name}}"
+                            (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, ingredient.price)">
+                      {{ingredient.name}}
+                    </button>
+                  </div>
+                  <div *ngIf="ingredient.available == false">
+                    <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                      {{ingredient.name}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="productModal{{product.id}}" tabindex="-1" role="dialog"
+                 aria-labelledby="productCloseup" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <img class="img-responsive large_product_image" src={{product.image}} alt="Product Image"/>
+                <div class="product-description">
+                  {{product.description}}
+                </div>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Stäng</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <br>
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 centered" *ngFor="let product of products">
-        <div *ngIf="product.type == 'dish'">
-          <h1>{{product.name}} {{product.price}}:-</h1>
-          <img class="product_image" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
-               src={{product.image}}/>
-          <br>
-          <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdown_{{product.name}}" ngbDropdownToggle>Choose Protein</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <div *ngFor="let ingredient of product.ingredients">
-                <button type="button" class="btn btn-link" id="{{product.name}}_{{ingredient.name}}" (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, ingredient.price)">{{ingredient.name}}</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="modal fade" id="productModal{{product.id}}" tabindex="-1" role="dialog"
-               aria-labelledby="productCloseup" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <button type="button" class="close" aria-label="Close" data-dismiss="modal">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <img class="img-responsive large_product_image" src={{product.image}} alt="Product Image"/>
-              <div class="product-description">
-                {{product.description}}
-              </div>
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
-    <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../assets/circle.png'"></agm-marker>
-  </agm-map>
-</div>
+    <br>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
+      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../assets/circle.png'"></agm-marker>
+    </agm-map>
+    <footer class="footer">
+    <span class="footer-text">
+      <h5> Mån-Fre 11-19, Lör: 12-16.30 </h5>
+      <h5> Beställ mellan 11-18:30 </h5>
+      <h5> Telefon: 076-633 35 52 </h5>
+      <a target="_blank" href="https://goo.gl/maps/s523jHUZ3VL2"><h5> Sveavägen 13, 111 57 </h5></a>
+      <a target="_blank" href="https://www.facebook.com/kimchistan/"><i class="fa fa-facebook-square fa-4x"
+                                                                        aria-hidden="true"></i></a>
+    </span>
+    </footer>
