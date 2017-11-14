@@ -11,10 +11,12 @@ export class PaymentService {
   }
 
   create(token: any) {
-    this.datastore.createRecord(Payment, {
+    let payment = this.datastore.createRecord(Payment, {
       email: token.email,
       token: token.id
     })
+
+    payment.save().subscribe();
   }
 
 }
