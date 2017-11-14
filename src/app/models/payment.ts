@@ -9,4 +9,8 @@ export class Payment extends JsonApiModel {
 
   @Attribute()
   token: string;
-};
+
+  @Attribute()
+  amount: number;
+
+}

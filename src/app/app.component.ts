@@ -23,15 +23,8 @@ export class AppComponent {
               private paymentService: PaymentService) {
     this.getProducts();
     this.reAddProducts();
-    // this.getPayments()
   }
 
-  // getPayments(): void {
-  //   this.paymentService.getAll()
-  //     .subscribe(payments => {
-  //       this.payments =payments
-  //     });
-  // }
 
 
   getProducts(): void {
@@ -47,14 +40,12 @@ export class AppComponent {
       locale: 'auto',
       token: (token: any) => {
         this.paymentService.create(token);
-          // .subscribe(res => console.log(res));
-        console.log(token.id)
       }
     })
 
     handler.open({
       name: 'Kimchistan',
-      amount: 2000
+      amount: this.total_price
     });
   };
 
