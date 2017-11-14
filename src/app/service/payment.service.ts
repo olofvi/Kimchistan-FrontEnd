@@ -15,7 +15,6 @@ export class PaymentService {
       .map(res => res.getModels());
   }
 
-
   openCheckout() {
     const handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_tzGL0gkTTfi6MspvJQhEo6Hq',

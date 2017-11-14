@@ -30,10 +30,6 @@ export class AppComponent {
       });
   }
 
-  addPayments(email: string, token: string) {
-    this.paymentService.post()
-  }
-
   getProducts(): void {
     this.productService.getAll()
       .subscribe(products => {
