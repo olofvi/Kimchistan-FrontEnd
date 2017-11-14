@@ -48,23 +48,20 @@ a:link {
   color: red;
 }
 
-a:link:hover {
-  color: darkred;
-  text-decoration: none;
+a {
+  color: red;
 }
 
-a:visited {
+a:link:hover, a:link:visited, a:link:active, a:link:focus {
   color: darkred;
   text-decoration: none;
+  border: none;
 }
 
-a:active {
+a#showing_hide:hover, a#showing_hide:visited, a#showing_hide:active, a#showing_hide:focus {
   color: darkred;
   text-decoration: none;
-}
-
-a:focus{
-  color:darkred;
+  border: none;
 }
 
 i {
