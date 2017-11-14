@@ -20,15 +20,16 @@ export class AppComponent {
               private cartSVC: ShoppingCartService,
               private paymentService: PaymentService) {
     this.getProducts();
-    this.getPayments()
+    // this.getPayments()
   }
 
-  getPayments(): void {
-    this.paymentService.getAll()
-      .subscribe(payments => {
-        this.payments =payments
-      });
-  }
+  // getPayments(): void {
+  //   this.paymentService.getAll()
+  //     .subscribe(payments => {
+  //       this.payments =payments
+  //     });
+  // }
+
 
   getProducts(): void {
     this.productService.getAll()
@@ -36,6 +37,23 @@ export class AppComponent {
         this.products = products;
       });
   }
+
+  openCheckout() {
+    const handler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_tzGL0gkTTfi6MspvJQhEo6Hq',
+      locale: 'auto',
+      token: (token: any) => {
+        this.paymentService.create(token);
+          // .subscribe(res => console.log(res));
+        console.log(token.id)
+      }
+    })
+
+    handler.open({
+      name: 'Kimchistan',
+      amount: 2000
+    });
+  };
 
   addProduct(p_id: string, p_name: string, p_price: number, i_id: string, i_name: string, i_price: number) {
     let price: number;
@@ -47,4 +65,5 @@ export class AppComponent {
     this.cartSVC.addToCart(p_id, p_name, price, i_id, i_name);
 
   }
+
 }
