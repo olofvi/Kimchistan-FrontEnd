@@ -8,7 +8,7 @@ const config: DatastoreConfig = {
   baseUrl: 'http://localhost:3000/api',
   apiVersion: 'v1',
   models: {
-    products: Product
+    products: Product,
     payments: Payment
   }
 }
