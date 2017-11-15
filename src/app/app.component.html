@@ -139,10 +139,10 @@
                src={{product.image}}/>
           <br>
           <div ngbDropdown class="d-inline-block unavaiable">
-            <button class="btn btn-primary" id="dropdown_{{product.name}}" ngbDropdownToggle>Slutsåld</button>
+            <button class="btn btn-primary unavaiable" id="dropdown_{{product.name}}" ngbDropdownToggle>Slutsåld</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <div *ngFor="let ingredient of product.ingredients">
-                <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                <button class="dropdown-item disabled unavaiable" id="{{product.name}}_{{ingredient.name}}">
                   {{ingredient.name}} ({{ingredient.price + product.price}} kr)
                 </button>
               </div>

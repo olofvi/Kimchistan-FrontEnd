@@ -13,11 +13,12 @@ img.product_image_unavailable {
   opacity: 0.5;
   width: 40%;
   border-radius: 50%;
-  cursor: pointer;
+  cursor: not-allowed;
 }
 
 .unavaiable {
   opacity: 0.5;
+  cursor: not-allowed!important;
 }
 
 .large_product_image {
