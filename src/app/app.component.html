@@ -15,9 +15,9 @@
                 <div *ngIf="item.ingredient_name == undefined">
                   {{item.product_name}} ({{item.price}} kr) x{{item.item_quantity}}
                 </div>
-                <div class="payment">
-                  <button (click)="openCheckout()">Purchase</button>
-                </div>
+              </div>
+              <div class="payment">
+                <button (click)="openCheckout()">Purchase</button>
               </div>
             </div>
           </div>

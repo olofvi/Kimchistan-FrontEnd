@@ -9,15 +9,13 @@ export class PaymentService {
   constructor(private datastore: DatastoreService) {
   }
 
-  create(token: any) {
+  create(token: any, amount: any) {
     let payment = this.datastore.createRecord(Payment, {
       email: token.email,
       token: token.id,
-      amount: token.amount
-    })
+      amount: amount,
+    });
 
-    payment.save().subscribe(
-    );
+    payment.save().subscribe();
   }
-
 }

@@ -38,14 +38,15 @@ export class AppComponent {
     const handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_tzGL0gkTTfi6MspvJQhEo6Hq',
       locale: 'auto',
+      amount: this.total_price * 100,
       token: (token: any) => {
-        this.paymentService.create(token);
+        this.paymentService.create(token, this.total_price);
       }
     })
 
     handler.open({
       name: 'Kimchistan',
-      amount: this.total_price
+      amount: this.total_price * 100
     });
   };
 
