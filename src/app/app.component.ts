@@ -34,19 +34,23 @@ export class AppComponent {
       });
   }
 
+
   openCheckout() {
+    let amount = this.total_price * 100;
     const handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_tzGL0gkTTfi6MspvJQhEo6Hq',
       locale: 'auto',
-      amount: this.total_price * 100,
+      name: 'Kimchistan',
+      currency: 'sek',
+      amount: amount,
       token: (token: any) => {
-        this.paymentService.create(token, this.total_price);
+        this.paymentService.create(token, amount );
       }
-    })
+    });
 
     handler.open({
       name: 'Kimchistan',
-      amount: this.total_price * 100
+      amount: amount
     });
   };
 
