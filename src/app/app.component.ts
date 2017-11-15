@@ -39,7 +39,7 @@ export class AppComponent {
     let amount = this.total_price * 100;
     const handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_tzGL0gkTTfi6MspvJQhEo6Hq',
-      locale: 'auto',
+      locale: 'Sv',
       name: 'Kimchistan',
       currency: 'sek',
       amount: amount,
