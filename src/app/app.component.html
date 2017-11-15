@@ -106,22 +106,42 @@
         </div>
     </div>
     <div class="col-md-4 centered" *ngFor="let product of products">
-      <div *ngIf="product.type == 'dish'">
-        <h3>{{product.name}}</h3>
-        <img class="product_image" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
-             src={{product.image}}/>
-        <br>
-        <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-primary" id="dropdown_{{product.name}}" ngbDropdownToggle>Välj Protein</button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <div *ngFor="let ingredient of product.ingredients">
-              <div *ngIf="ingredient.available == true">
-                <button class="dropdown-item" id="{{product.name}}_{{ingredient.name}}"
-                        (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, ingredient.price)">
-                  {{ingredient.name}} ({{ingredient.price + product.price}} kr)
-                </button>
+      <div *ngIf="product.available == true">
+        <div *ngIf="product.type == 'dish'">
+          <h3>{{product.name}}</h3>
+          <img class="product_image" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
+               src={{product.image}}/>
+          <br>
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-primary" id="dropdown_{{product.name}}" ngbDropdownToggle>Välj Protein</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <div *ngFor="let ingredient of product.ingredients">
+                <div *ngIf="ingredient.available == true">
+                  <button class="dropdown-item" id="{{product.name}}_{{ingredient.name}}"
+                          (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, ingredient.price)">
+                    {{ingredient.name}} ({{ingredient.price + product.price}} kr)
+                  </button>
+                </div>
+                <div *ngIf="ingredient.available != true">
+                  <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                    {{ingredient.name}} ({{ingredient.price + product.price}} kr)
+                  </button>
+                </div>
               </div>
-              <div *ngIf="ingredient.available != true">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="product.available != true">
+        <div *ngIf="product.type == 'dish'">
+          <h3 class="unavaiable">{{product.name}}</h3>
+          <img class="product_image_unavailable" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
+               src={{product.image}}/>
+          <br>
+          <div ngbDropdown class="d-inline-block unavaiable">
+            <button class="btn btn-primary" id="dropdown_{{product.name}}" ngbDropdownToggle>Slutsåld</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <div *ngFor="let ingredient of product.ingredients">
                 <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
                   {{ingredient.name}} ({{ingredient.price + product.price}} kr)
                 </button>

@@ -9,6 +9,17 @@ img.product_image {
   cursor: pointer;
 }
 
+img.product_image_unavailable {
+  opacity: 0.5;
+  width: 40%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.unavaiable {
+  opacity: 0.5;
+}
+
 .large_product_image {
   width: 100%;
   border-radius: 50%;
