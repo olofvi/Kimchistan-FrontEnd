@@ -16,6 +16,9 @@
                   {{item.product_name}} ({{item.price}} kr) x{{item.item_quantity}}
                 </div>
               </div>
+              <div class="payment">
+                <button (click)="openCheckout()">Betala</button>
+              </div>
             </div>
           </div>
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse" id="showing_hide" >
@@ -144,7 +147,7 @@
   </div>
 </div>
 <br>
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
+<agm-map [latitude]="lat" [longitude]="lng" [minZoom]=15 [maxZoom]=15>
   <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../assets/circle.png'"></agm-marker>
 </agm-map>
 <footer class="footer">
