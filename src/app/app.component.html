@@ -66,13 +66,13 @@
             <div *ngFor="let ingredient of product.ingredients">
               <div *ngIf="ingredient.available == true">
                 <button class="dropdown-item" id="{{product.name}}_{{ingredient.name}}"
-                        (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, ingredient.price)">
-                  {{ingredient.name}} ({{ingredient.price + product.price}} kr)
+                        (click)="addProduct(product.id, product.name, 89, ingredient.id, ingredient.name, 0)">
+                  {{ingredient.name}} (89 kr)
                 </button>
               </div>
               <div *ngIf="ingredient.available != true">
                 <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
-                  {{ingredient.name}} ({{ingredient.price + product.price}} kr)
+                  {{ingredient.name}} (89 kr)
                 </button>
               </div>
             </div>
@@ -144,16 +144,31 @@
           <button class="btn btn-primary" id="dropdown_{{product.name}}" ngbDropdownToggle>Välj Protein</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <div *ngFor="let ingredient of product.ingredients">
-              <div *ngIf="ingredient.available == true">
-                <button class="dropdown-item" id="{{product.name}}_{{ingredient.name}}"
-                        (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, ingredient.price)">
-                  {{ingredient.name}} ({{ingredient.price + product.price}} kr)
-                </button>
+              <div *ngIf="product.name.toUpperCase() == 'Korean tacos'.toUpperCase()">
+                <div *ngIf="ingredient.available == true">
+                  <button class="dropdown-item" id="{{product.name}}_{{ingredient.name}}"
+                          (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, 0)">
+                    {{ingredient.name}} ({{product.price}} kr)
+                  </button>
+                </div>
+                <div *ngIf="ingredient.available != true">
+                  <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                    {{ingredient.name}} ({{product.price}} kr)
+                  </button>
+                </div>
               </div>
-              <div *ngIf="ingredient.available != true">
-                <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
-                  {{ingredient.name}} ({{ingredient.price + product.price}} kr)
-                </button>
+              <div *ngIf="product.name.toUpperCase() != 'Korean tacos'.toUpperCase()">
+                <div *ngIf="ingredient.available == true">
+                  <button class="dropdown-item" id="{{product.name}}_{{ingredient.name}}"
+                          (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, ingredient.price)">
+                    {{ingredient.name}} ({{ingredient.price + product.price}} kr)
+                  </button>
+                </div>
+                <div *ngIf="ingredient.available != true">
+                  <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                    {{ingredient.name}} ({{ingredient.price + product.price}} kr)
+                  </button>
+                </div>
               </div>
             </div>
           </div>
