@@ -53,6 +53,35 @@
 </nav>
 <div class="container">
   <div class="row">
+    <div class="col-md-4 offset-md-4 centered" *ngFor="let product of products">
+      <div *ngIf="product.type == 'dish' && product.dailydishfor == today.getDay()">
+        <h3>Dagens rätt 89:-</h3>
+        <h3>{{product.name}}</h3>
+        <img class="product_image" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
+             src={{product.image}}/>
+        <br>
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-primary" id="dropdown_{{product.name}}" ngbDropdownToggle>Välj Protein</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <div *ngFor="let ingredient of product.ingredients">
+              <div *ngIf="ingredient.available == true">
+                <button class="dropdown-item" id="{{product.name}}_{{ingredient.name}}"
+                        (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, ingredient.price)">
+                  {{ingredient.name}} ({{ingredient.price + product.price}} kr)
+                </button>
+              </div>
+              <div *ngIf="ingredient.available != true">
+                <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                  {{ingredient.name}} ({{ingredient.price + product.price}} kr)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-4 centered">
       <h3>Sallad</h3>
       <img class="sidedish_image"
@@ -73,34 +102,6 @@
                 <button type="button" class="dropdown-item disabled" id="disabled_{{product.name}}">
                   {{product.name}} ({{product.price}} kr)
                 </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 centered" *ngFor="let product of products">
-      <div *ngIf="product.type == 'dish'">
-        <div *ngIf="product.dailydishfor == today.getDay()">
-          <h3>{{product.name}}</h3>
-          <img class="product_image" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
-               src={{product.image}}/>
-          <br>
-          <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-primary" id="dropdown_{{product.name}}" ngbDropdownToggle>Välj Protein</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <div *ngFor="let ingredient of product.ingredients">
-                <div *ngIf="ingredient.available == true">
-                  <button class="dropdown-item" id="{{product.name}}_{{ingredient.name}}"
-                          (click)="addProduct(product.id, product.name, product.price, ingredient.id, ingredient.name, ingredient.price)">
-                    {{ingredient.name}} ({{ingredient.price + product.price}} kr)
-                  </button>
-                </div>
-                <div *ngIf="ingredient.available != true">
-                  <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
-                    {{ingredient.name}} ({{ingredient.price + product.price}} kr)
-                  </button>
-                </div>
               </div>
             </div>
           </div>
@@ -134,7 +135,7 @@
       </div>
     </div>
     <div class="col-md-4 centered" *ngFor="let product of products">
-      <div *ngIf="product.type == 'dish'">
+      <div *ngIf="product.type == 'dish' && product.dailydishfor != today.getDay()">
         <h3>{{product.name}}</h3>
         <img class="product_image" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
              src={{product.image}}/>
