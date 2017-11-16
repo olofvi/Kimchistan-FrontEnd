@@ -47,14 +47,15 @@
               <button type="button" id="remove_all" class="btn btn-clear" (click)="clearCart()">
                 Töm korgen
               </button>
-              <ng-container *ngIf=" (0 != today.getDay() && (7 == today.getDay() && 12 < today.getHours() < 16) || (11 < today.getHours() < 18.5))">
+              <ng-container *ngIf=" ( (0 != today.getDay() && 6 != today.getDay() && 11 < today.getHours() && today.getHours()+'.'+today.getMinutes() < '18.30') || (7 == today.getDay() && 12 < today.getHours() && today.getHours() < 16))">
+              <!--|| (7 == today.getDay() && 12 < today.getHours() || today.getHours() < 16)">-->
                 <div class="payment">
                   <button class="btn btn-pay" (click)="openCheckout()">
                     Betala
                   </button>
                 </div>
               </ng-container>
-              <ng-container *ngIf=" (0 == today.getDay() && (7 != today.getDay() && 12 > today.getHours() > 16) || (11 > today.getHours() > 18.5))">
+              <ng-container *ngIf="( 0 == today.getDay() || (6 == today.getDay() && (12 > today.getHours() || today.getHours() > 16)) || (11 > today.getHours() || today.getHours()+'.'+today.getMinutes() > '18.30') )">
                 <div class="payment">
                   <button class="btn btn-pay disabled">
                     Restaurangen är stängd
