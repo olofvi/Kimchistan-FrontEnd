@@ -74,3 +74,25 @@ i:hover {
   color: darkred;
   text-decoration: none;
 }
+
+@media screen and (max-width: 600px) {
+  .btn-remove-web, .show-on-web {
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .btn-remove-mobile {
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
+}
