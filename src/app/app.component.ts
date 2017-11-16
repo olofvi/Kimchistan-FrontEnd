@@ -30,7 +30,6 @@ export class AppComponent {
 
   weekday() {
     this.today = new Date;
-    console.log(this.today.getDay());
   }
 
   getProducts(): void {
@@ -75,7 +74,6 @@ export class AppComponent {
     this.cart = this.cartSVC.showAll();
     this.total_price = this.cartSVC.showTotal();
     this.total_cart_items = this.cartSVC.showQuantity();
-    console.log(this.total_cart_items);
   }
 
   reAddProducts() {
