@@ -17,15 +17,20 @@ export class AppComponent {
   lng: number = 18.063829;
   cart: any = [];
   total_price: number;
+  today: any;
 
   constructor(private productService: ProductService,
               private cartSVC: ShoppingCartService,
               private paymentService: PaymentService) {
     this.getProducts();
     this.reAddProducts();
+    this.weekday();
   }
 
-
+  weekday() {
+    this.today = new Date;
+    console.log(this.today.getDay());
+  }
 
   getProducts(): void {
     this.productService.getAll()
