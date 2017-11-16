@@ -23,6 +23,9 @@ export class Product extends JsonApiModel {
   available: true;
 
   @Attribute()
+  dailydishfor: true;
+
+  @Attribute()
   ingredients: string;
 
 }
