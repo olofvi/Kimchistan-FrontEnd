@@ -3,13 +3,13 @@ import {Observable} from 'rxjs/Observable';
 import {DatastoreService} from './datastore.service';
 import {Payment} from '../models/payment';
 import {ErrorResponse} from 'angular2-jsonapi';
+import {Response} from '@angular/http';
 
 
 @Injectable()
 export class PaymentService {
 
-  constructor(private datastore: DatastoreService,
-              private errorResponse: ErrorResponse) {
+  constructor(private datastore: DatastoreService) {
   }
 
   create(token: any, amount: any) {
@@ -22,12 +22,12 @@ export class PaymentService {
     return payment.save()
       .catch(err => {
         let errMessage: string;
-        if (errorResponse instanceof ErrorResponse) {
-          const body = errorResponse.json() || '';
+        if (err instanceof Response) {
+          const body = err.json() || '';
           const error = body.error || JSON.stringify(body);
-          errMessage = `${errorResponse.status} - ${errorResponse.statusText} || ''} ${error}`;
+          errMessage = `${err.status} - ${err.statusText} || ''} ${error}`;
         } else {
-          errMessage = errorResponse.message ? errorResponse.message : err.toString();
+          errMessage = err.message ? err.message : err.toString();
         }
 
         return Observable.throw(errMessage);
