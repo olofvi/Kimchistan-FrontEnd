@@ -11,18 +11,38 @@
             <div class="panel-body">
               <ng-container *ngFor="let item of cart">
                 <div *ngIf="item.ingredient_name">
-                  {{item.product_name}} med {{item.ingredient_name}} ({{item.price}} kr) x{{item.item_quantity}}
-                  <button class="btn-remove" id="remove_{{item.product_name}}-{{item.ingredient_name}}"
-                          (click)="removeProduct(item.product_id, item.product_name, item.price, item.ingredient_id, item.ingredient_name)">
-                    Ta bort
-                  </button>
+                  <div class="show-on-web">
+                    {{item.product_name}} med {{item.ingredient_name}} ({{item.price}} kr) x{{item.item_quantity}}
+                    <a class="btn-remove-web" id="remove_{{item.product_name}}-{{item.ingredient_name}}"
+                            (click)="removeProduct(item.product_id, item.product_name, item.price, item.ingredient_id, item.ingredient_name)">
+                      Ta bort
+                    </a>
+                  </div>
+                  <div class="show-on-mobile">
+                    {{item.product_name}} med {{item.ingredient_name}} ({{item.price}} kr) x{{item.item_quantity}}
+                    <br>
+                    <a class="btn-remove-mobile" id="remove_{{item.product_name}}-{{item.ingredient_name}}"
+                            (click)="removeProduct(item.product_id, item.product_name, item.price, item.ingredient_id, item.ingredient_name)">
+                      Ta bort
+                    </a>
+                  </div>
                 </div>
                 <div *ngIf="item.ingredient_name == undefined">
-                  {{item.product_name}} ({{item.price}} kr) x{{item.item_quantity}}
-                  <button class="btn-remove" id="remove{{item.product_name}}"
-                          (click)="removeProduct(item.product_id, item.product_name, item.price)">
-                    Ta bort
-                  </button>
+                  <div class="show-on-web">
+                    {{item.product_name}} ({{item.price}} kr) x{{item.item_quantity}}
+                    <a class="btn-remove-web" id="remove{{item.product_name}}"
+                            (click)="removeProduct(item.product_id, item.product_name, item.price)">
+                      Ta bort
+                    </a>
+                  </div>
+                  <div class="show-on-mobile">
+                    {{item.product_name}} ({{item.price}} kr) x{{item.item_quantity}}
+                    <br>
+                    <a class="btn-remove-mobile" id="remove{{item.product_name}}"
+                       (click)="removeProduct(item.product_id, item.product_name, item.price)">
+                      Ta bort
+                    </a>
+                  </div>
                 </div>
               </ng-container>
               <button type="button" id="remove_all" class="btn btn-clear" (click)="clearCart()">
@@ -49,13 +69,13 @@
   </div>
   <div class="header-text">
     <div class="row row-bottom-margin">
-      <div class="col">
+      <div class="col-md-6">
         <h5>Mån-Fre 11-19</h5>
         <h5>Lör: 12-16.30</h5>
         <h5>Sön: Stängt</h5>
         <h5>Beställ mellan 11-18:30</h5>
       </div>
-      <div class="col">
+      <div class="col-md-6">
         <h5>Beställ så här:</h5>
         <h5>Välj mat & dryck i dropdown-menyerna</h5>
         <h5>Lägg beställningen högst upp på sidan</h5>
@@ -255,7 +275,9 @@
 </agm-map>
 <footer class="footer">
   <span class="footer-text">
-  <h5> Mån-Fre 11-19, Lör: 12-16.30, Sön: Stängt </h5>
+  <h5> Mån-Fre: 11-19 </h5>
+  <h5> Lör: 12-16.30 </h5>
+  <h5> Sön: Stängt </h5>
   <h5> Beställ mellan 11-18:30 </h5>
   <h5> Telefon: 076-633 35 52 </h5>
   <a target="_blank" href="https://goo.gl/maps/s523jHUZ3VL2"><h5> Sveavägen 13, 111 57 </h5></a>
