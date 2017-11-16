@@ -41,7 +41,7 @@ export class ShoppingCartService {
   showTotal() {
     let total_price = 0;
     this.cart.forEach(function (obj) {
-      total_price += obj.price;
+      total_price += obj.price * obj.item_quantity;
     });
     return total_price;
   }
