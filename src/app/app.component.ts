@@ -17,6 +17,7 @@ export class AppComponent {
   lng: number = 18.063829;
   cart: any = [];
   total_price: number;
+  total_cart_items: number;
   today: any;
 
   constructor(private productService: ProductService,
@@ -59,20 +60,22 @@ export class AppComponent {
     });
   };
 
-  addProduct(p_id: string, p_name: string, p_price: number, i_id: string, i_name: string, i_price: number) {
+  addProduct(product_id: string, product_name: string, product_price: number, ingredient_id: string, ingredient_name: string, ingredient_price: number) {
     let price: number;
-    if (i_price) {
-      price = p_price + i_price;
+    if (ingredient_price) {
+      price = product_price + ingredient_price;
     } else {
-      price = p_price;
+      price = product_price;
     }
-    this.cartSVC.addToCart(p_id, p_name, price, i_id, i_name);
+    this.cartSVC.addToCart(product_id, product_name, price, ingredient_id, ingredient_name);
     this.showProducts();
   }
 
   showProducts() {
     this.cart = this.cartSVC.showAll();
     this.total_price = this.cartSVC.showTotal();
+    this.total_cart_items = this.cartSVC.showQuantity();
+    console.log(this.total_cart_items);
   }
 
   reAddProducts() {
@@ -80,5 +83,16 @@ export class AppComponent {
       this.cartSVC.loadCart();
       this.showProducts();
     }
+  }
+
+  clearCart() {
+    this.cartSVC.clearCart();
+    this.showProducts();
+  }
+
+  removeProduct(product_id: string, product_name: string, product_price: number, ingredient_id: string, ingredient_name: string) {
+    this.cartSVC.removeProduct(product_id, product_name, product_price, ingredient_id, ingredient_name);
+    this.showProducts();
+    this.cartSVC.showTotal();
   }
 }

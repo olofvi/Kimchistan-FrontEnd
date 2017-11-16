@@ -2,7 +2,7 @@
   <nav class="fixed-header">
     <div class="header-text">
       <a data-toggle="collapse" data-parent="#accordion" href="#collapse" id="cart_showing">
-        <i class="fa fa-shopping-basket fa-2x" aria-hidden="true"> {{cart.length}} i korgen ({{total_price}} kr)</i></a>
+        <i class="fa fa-shopping-basket fa-2x" aria-hidden="true"> {{total_cart_items}} i korgen ({{total_price}} kr)</i></a>
       <br>
       <div class="panel-group" id="accordion">
         <div class="panel panel-default">
@@ -11,13 +11,24 @@
               <ng-container *ngFor="let item of cart">
                 <div *ngIf="item.ingredient_name">
                   {{item.product_name}} med {{item.ingredient_name}} ({{item.price}} kr) x{{item.item_quantity}}
+                  <button class="btn-remove" id="remove_{{item.product_name}}-{{item.ingredient_name}}"
+                          (click)="removeProduct(item.product_id, item.product_name, item.price, item.ingredient_id, item.ingredient_name)">
+                    Ta bort
+                  </button>
                 </div>
                 <div *ngIf="item.ingredient_name == undefined">
                   {{item.product_name}} ({{item.price}} kr) x{{item.item_quantity}}
+                  <button class="btn-remove" id="remove{{item.product_name}}"
+                          (click)="removeProduct(item.product_id, item.product_name, item.price)">
+                    Ta bort
+                  </button>
                 </div>
               </ng-container>
+              <button type="button" id="remove_all" class="btn btn-clear" (click)="clearCart()">
+                Töm korgen
+              </button>
               <div class="payment">
-                <button (click)="openCheckout()">Betala</button>
+                <button class="btn btn-pay" (click)="openCheckout()">Betala</button>
               </div>
             </div>
           </div>
