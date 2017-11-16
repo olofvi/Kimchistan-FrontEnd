@@ -6,7 +6,7 @@ import { Payment} from "../models/payment";
 import { Cartrecord } from './../models/cartrecord';
 
 const config: DatastoreConfig = {
-  baseUrl: 'https://kimchistan-api.herokuapp.com/api',
+  baseUrl: 'http//localhost:3000/api',
   apiVersion: 'v1',
   models: {
     products: Product,
