@@ -9,3 +9,4 @@ export class Cartrecord extends JsonApiModel {
 
   @Attribute()
   cart: object;
+}
