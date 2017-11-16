@@ -82,16 +82,16 @@
             </div>
           </ng-container>
           <ng-container *ngIf="product.available != true">
-            <h3>Dagens rätt 89:- (slutsåld)</h3>
-            <h3>{{product.name}}</h3>
+            <h3 class="unavailable">Dagens rätt 89:- (slutsåld)</h3>
+            <h3 class="unavailable">{{product.name}}</h3>
             <img class="product_image_unavailable" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
                  src={{product.image}}/>
             <br>
             <div ngbDropdown class="d-inline-block">
-              <button class="btn btn-primary disabled unavailable" id="dropdown_{{product.name}}" ngbDropdownToggle>Slutsåld</button>
+              <button class="btn btn-primary disabled unavaiable" id="dropdown_{{product.name}}" ngbDropdownToggle>Slutsåld</button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <ng-container *ngFor="let ingredient of product.ingredients">
-                  <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                  <button class="dropdown-item disabled unavaiable" id="{{product.name}}_{{ingredient.name}}">
                     {{ingredient.name}} (89 kr)
                   </button>
                 </ng-container>
@@ -198,7 +198,7 @@
         </ng-container>
         <ng-container *ngIf="product.available != true">
           <div class="col-md-4 centered">
-            <h3 class="unavaiable">{{product.name}}</h3>
+            <h3 class="unavailable">{{product.name}}</h3>
             <img class="product_image_unavailable" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
                  src={{product.image}}/>
             <br>

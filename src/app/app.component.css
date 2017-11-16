@@ -16,7 +16,7 @@ img.product_image_unavailable {
   cursor: not-allowed;
 }
 
-.unavaiable {
+.unavailable {
   opacity: 0.5;
   cursor: not-allowed!important;
 }
