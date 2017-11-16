@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Product } from './models/product';
-import { Payment} from "./models/payment";
+import { Payment} from './models/payment';
 import { ProductService } from './service/product.service';
-import { PaymentService} from "./service/payment.service";
+import { PaymentService} from './service/payment.service';
 import { ShoppingCartService } from './service/shoppingcart.service';
+import { CartrecordService } from './service/cartrecord.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,9 @@ export class AppComponent {
 
   constructor(private productService: ProductService,
               private cartSVC: ShoppingCartService,
-              private paymentService: PaymentService) {
+              private paymentService: PaymentService,
+              private cartrecordService: CartrecordService)
+{
     this.getProducts();
     this.reAddProducts();
     this.weekday();
@@ -43,6 +46,7 @@ export class AppComponent {
 
   openCheckout() {
     let amount = this.total_price * 100;
+    const cart = this.cart
     const handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_tzGL0gkTTfi6MspvJQhEo6Hq',
       locale: 'Sv',
@@ -51,6 +55,9 @@ export class AppComponent {
       amount: amount,
       token: (token: any) => {
         this.paymentService.create(token, amount );
+      },
+      cart: (cart: any) => {
+        this.cartrecordService.create(cart)
       }
     });
 

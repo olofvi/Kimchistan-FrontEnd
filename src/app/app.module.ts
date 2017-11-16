@@ -4,12 +4,13 @@ import { JsonApiModule } from 'angular2-jsonapi';
 import { DatastoreService } from './service/datastore.service';
 import { ProductService } from './service/product.service';
 import { ShoppingCartService } from './service/shoppingcart.service';
+import { CartrecordService } from './service/cartrecord.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
-import {PaymentService} from "./service/payment.service";
+import { PaymentService } from './service/payment.service';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {PaymentService} from "./service/payment.service";
     ProductService,
     DatastoreService,
     ShoppingCartService,
-    PaymentService
+    PaymentService,
+    CartrecordService
   ],
 
   bootstrap: [AppComponent]
