@@ -21,11 +21,12 @@ export class AppComponent {
   total_cart_items: number;
   today: any;
 
-  constructor(private productService: ProductService,
-              private cartSVC: ShoppingCartService,
-              private paymentService: PaymentService,
-              private cartrecordService: CartrecordService)
-{
+  constructor(
+    private productService: ProductService,
+    private cartSVC: ShoppingCartService,
+    private paymentService: PaymentService,
+    private cartrecordService: CartrecordService
+  ) {
     this.getProducts();
     this.reAddProducts();
     this.weekday();
@@ -45,8 +46,8 @@ export class AppComponent {
 
 
   openCheckout() {
-    let amount = this.total_price * 100;
-    const cart = this.cart
+    const amount = this.total_price * 100;
+
     const handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_tzGL0gkTTfi6MspvJQhEo6Hq',
       locale: 'Sv',
@@ -54,18 +55,19 @@ export class AppComponent {
       currency: 'sek',
       amount: amount,
       token: (token: any) => {
-        this.paymentService.create(token, amount );
+        this.paymentService
+          .create(token, amount)
+          .subscribe(({ email }) => {
+            this.cartrecordService.create(this.cart, email);
+          });
       },
-      cart: (cart: any) => {
-        this.cartrecordService.create(cart)
-      }
     });
 
     handler.open({
       name: 'Kimchistan',
       amount: amount
     });
-  };
+  }
 
   addProduct(product_id: string, product_name: string, product_price: number, ingredient_id: string, ingredient_name: string, ingredient_price: number) {
     let price: number;
