@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';import { Observable } from 'rxjs/Observable';
-import { DatastoreService } from './datastore.service';
-import { Payment } from '../models/payment';
-import { ErrorResponse } from 'angular2-jsonapi';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import {DatastoreService} from './datastore.service';
+import {Payment} from '../models/payment';
+import {ErrorResponse} from 'angular2-jsonapi';
+import {Response} from '@angular/http';
 
 
 @Injectable()
 export class PaymentService {
 
-  constructor(private datastore: DatastoreService
-              private errorresponse: ErrorResponse) {
+  constructor(private datastore: DatastoreService) {
   }
 
   create(token: any, amount: any) {
@@ -18,16 +19,19 @@ export class PaymentService {
       amount: amount,
     });
 
-    return payment.save();
-  }
+    return payment.save()
+      .catch(err => {
+        let errMessage: string;
+        if (err instanceof Response) {
+          const body = err.json() || '';
+          const error = body.error || JSON.stringify(body);
+          errMessage = `${err.status} - ${err.statusText} || ''} ${error}`;
+        } else {
+          errMessage = err.message ? err.message : err.toString();
+        }
 
-  findAll(token: any)(
-    (payment: Payment[]) => console.log(payments),
-    ( errorResponse ) => {
-      if (errorResponse instanceof ErrorResponse) {
-      // do something with errorResponse
-       console.log(errorResponse.errors);
-      }
-    }
-    )
+        return Observable.throw(errMessage);
+      });
+  }
 }
+

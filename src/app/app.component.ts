@@ -60,8 +60,7 @@ export class AppComponent {
           .subscribe(({ email }) => {
             this.cartrecordService.create(this.cart, email);
           });
-        this.paymentService.findAll(token)
-      },
+        },
     });
 
     handler.open({
