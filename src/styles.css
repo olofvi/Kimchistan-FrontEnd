@@ -75,6 +75,10 @@ i:hover {
   text-decoration: none;
 }
 
+button.btn.btn-pay.disabled {
+  cursor: not-allowed;
+}
+
 @media screen and (max-width: 600px) {
   .btn-remove-web, .show-on-web {
     visibility: hidden;

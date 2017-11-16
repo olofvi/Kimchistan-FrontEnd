@@ -48,7 +48,6 @@
                 Töm korgen
               </button>
               <ng-container *ngIf=" ( (0 != today.getDay() && 6 != today.getDay() && 11 < today.getHours() && today.getHours()+'.'+today.getMinutes() < '18.30') || (7 == today.getDay() && 12 < today.getHours() && today.getHours() < 16))">
-              <!--|| (7 == today.getDay() && 12 < today.getHours() || today.getHours() < 16)">-->
                 <div class="payment">
                   <button class="btn btn-pay" (click)="openCheckout()">
                     Betala
