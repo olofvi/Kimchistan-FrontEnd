@@ -17,17 +17,31 @@
                       Ta bort
                     </a>
                   </div>
-                  <a class="btn-remove-mobile" id="remove_{{item.product_name}}-{{item.ingredient_name}}"
-                          (click)="removeProduct(item.product_id, item.product_name, item.price, item.ingredient_id, item.ingredient_name)">
+                  <div class="show-on-mobile">
                     {{item.product_name}} med {{item.ingredient_name}} ({{item.price}} kr) x{{item.item_quantity}}
-                  </a>
+                    <br>
+                    <a class="btn-remove-mobile" id="remove_{{item.product_name}}-{{item.ingredient_name}}"
+                            (click)="removeProduct(item.product_id, item.product_name, item.price, item.ingredient_id, item.ingredient_name)">
+                      Ta bort
+                    </a>
+                  </div>
                 </div>
                 <div *ngIf="item.ingredient_name == undefined">
-                  {{item.product_name}} ({{item.price}} kr) x{{item.item_quantity}}
-                  <a class="btn-remove" id="remove{{item.product_name}}"
-                          (click)="removeProduct(item.product_id, item.product_name, item.price)">
-                    Ta bort
-                  </a>
+                  <div class="show-on-web">
+                    {{item.product_name}} ({{item.price}} kr) x{{item.item_quantity}}
+                    <a class="btn-remove-web" id="remove{{item.product_name}}"
+                            (click)="removeProduct(item.product_id, item.product_name, item.price)">
+                      Ta bort
+                    </a>
+                  </div>
+                  <div class="show-on-mobile">
+                    {{item.product_name}} ({{item.price}} kr) x{{item.item_quantity}}
+                    <br>
+                    <a class="btn-remove-mobile" id="remove{{item.product_name}}"
+                       (click)="removeProduct(item.product_id, item.product_name, item.price)">
+                      Ta bort
+                    </a>
+                  </div>
                 </div>
               </ng-container>
               <button type="button" id="remove_all" class="btn btn-clear" (click)="clearCart()">

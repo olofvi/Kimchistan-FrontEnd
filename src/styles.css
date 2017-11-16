@@ -87,7 +87,7 @@ i:hover {
 }
 
 @media screen and (min-width: 600px) {
-  .btn-remove-mobile {
+  .btn-remove-mobile, .show-on-mobile {
     visibility: hidden;
     clear: both;
     float: left;

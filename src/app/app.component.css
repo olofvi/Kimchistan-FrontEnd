@@ -1,3 +1,7 @@
+a#showing_hide {
+  color: red;
+}
+
 div.col-md-4.centered {
   text-align: center;
   margin-bottom: 30px;
@@ -66,11 +70,18 @@ a.btn-remove-mobile {
   color: red;
   border: none;
   align: center;
-  margin-left: 5px;
   border: none;
   outline:none;
 }
 
+.show-on-mobile {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.col-md-6 {
+  margin-top: 20px;
+}
 .btn.btn-pay {
   margin-top: 10px;
   color: white;
