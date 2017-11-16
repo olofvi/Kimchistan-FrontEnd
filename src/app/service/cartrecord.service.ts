@@ -6,17 +6,18 @@ import { ShoppingCartService} from './shoppingcart.service';
 
 @Injectable()
 export class CartrecordService {
-  cart: any;
 
-  constructor(private datastore: DatastoreService,
-              private cartSVC: ShoppingCartService) {
-  }
+  constructor(
+    private datastore: DatastoreService,
+    private cartSVC: ShoppingCartService
+  ) {}
 
-  create(cart: any = []) {
-    this.cart = this.cartSVC.showAll();
-    const cartrecord = this.datastore.createRecord(Cartrecord, {
-      cart: this.cart,
-  })
-    cartrecord.save().subscribe();
+  create(cart: any, email: string) {
+    const cartRecord = this.datastore.createRecord(Cartrecord, {
+      email: email,
+      cart: cart,
+    });
+
+    cartRecord.save().subscribe();
   }
 }

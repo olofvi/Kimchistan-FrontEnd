@@ -1,7 +1,7 @@
 import {JsonApiModelConfig, JsonApiModel, Attribute, HasMany, BelongsTo} from 'angular2-jsonapi';
 
 @JsonApiModelConfig({
-  type: 'payments'
+  type: 'orders'
 })
 export class Cartrecord extends JsonApiModel {
   @Attribute()
