@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {DatastoreService} from './datastore.service';
-import {Product} from '../models/product';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { DatastoreService } from './datastore.service';
+import { Product } from '../models/product';
 
 
 @Injectable()

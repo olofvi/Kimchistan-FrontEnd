@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { DatastoreService} from './datastore.service';
-import { Cartrecord} from '../models/cartrecord';
+import { DatastoreService } from './datastore.service';
+import { Order } from '../models/order';
 import { ShoppingCartService} from './shoppingcart.service';
 
 
 @Injectable()
-export class CartrecordService {
+export class OrderService {
 
   constructor(
     private datastore: DatastoreService,
@@ -13,11 +13,11 @@ export class CartrecordService {
   ) {}
 
   create(cart: any, email: string) {
-    const cartRecord = this.datastore.createRecord(Cartrecord, {
+    const order = this.datastore.createRecord(Order, {
       email: email,
       cart: cart,
     });
 
-    cartRecord.save().subscribe();
+    order.save().subscribe();
   }
 }

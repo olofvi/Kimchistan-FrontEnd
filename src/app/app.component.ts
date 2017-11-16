@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Product } from './models/product';
-import { Payment} from './models/payment';
+import { Payment } from './models/payment';
 import { ProductService } from './service/product.service';
-import { PaymentService} from './service/payment.service';
+import { PaymentService } from './service/payment.service';
 import { ShoppingCartService } from './service/shoppingcart.service';
-import { CartrecordService } from './service/cartrecord.service';
+import { OrderService } from './service/order.service';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,7 @@ export class AppComponent {
     private productService: ProductService,
     private cartSVC: ShoppingCartService,
     private paymentService: PaymentService,
-    private cartrecordService: CartrecordService
+    private orderService: OrderService
   ) {
     this.getProducts();
     this.reAddProducts();
@@ -58,7 +58,7 @@ export class AppComponent {
         this.paymentService
           .create(token, amount)
           .subscribe(({ email }) => {
-            this.cartrecordService.create(this.cart, email);
+            this.orderService.create(this.cart, email);
           });
         },
     });

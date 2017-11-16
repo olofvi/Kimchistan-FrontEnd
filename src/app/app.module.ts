@@ -4,11 +4,11 @@ import { JsonApiModule } from 'angular2-jsonapi';
 import { DatastoreService } from './service/datastore.service';
 import { ProductService } from './service/product.service';
 import { ShoppingCartService } from './service/shoppingcart.service';
-import { CartrecordService } from './service/cartrecord.service';
+import { OrderService } from './service/order.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import 'rxjs/add/operator/catch';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { PaymentService } from './service/payment.service';
@@ -21,6 +21,7 @@ import { PaymentService } from './service/payment.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgbModule.forRoot(), // for root module
     // NgbModule // for child module
     JsonApiModule,
@@ -33,7 +34,7 @@ import { PaymentService } from './service/payment.service';
     DatastoreService,
     ShoppingCartService,
     PaymentService,
-    CartrecordService
+    OrderService
   ],
 
   bootstrap: [AppComponent]

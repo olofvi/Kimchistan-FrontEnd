@@ -3,7 +3,7 @@ import {JsonApiModelConfig, JsonApiModel, Attribute, HasMany, BelongsTo} from 'a
 @JsonApiModelConfig({
   type: 'orders'
 })
-export class Cartrecord extends JsonApiModel {
+export class Order extends JsonApiModel {
   @Attribute()
   email: string;
 

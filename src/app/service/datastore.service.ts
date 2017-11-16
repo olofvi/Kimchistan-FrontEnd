@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { JsonApiDatastoreConfig, JsonApiDatastore, DatastoreConfig } from 'angular2-jsonapi';
 import { Http } from '@angular/http';
 import { Product } from '../models/product';
-import { Payment} from "../models/payment";
-import { Cartrecord } from './../models/cartrecord';
+import { Payment} from '../models/payment';
+import { Order } from '../models/order';
 
 const config: DatastoreConfig = {
   baseUrl: 'http://localhost:3000/api',
@@ -11,7 +11,7 @@ const config: DatastoreConfig = {
   models: {
     products: Product,
     payments: Payment,
-    orders: Cartrecord,
+    orders: Order,
   }
 };
 
