@@ -7,6 +7,7 @@ import { ShoppingCartService } from './service/shoppingcart.service';
 import { CartrecordService } from './service/cartrecord.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import 'rxjs/add/operator/catch';
 
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
