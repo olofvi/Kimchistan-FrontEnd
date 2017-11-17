@@ -31,7 +31,7 @@ export class AppComponent {
   }
 
   weekday() {
-    this.today = new Date(2017, 10, 19, 12, 0, 0, 0);
+    this.today = new Date();
   }
 
   isRestaurantOpen() {
