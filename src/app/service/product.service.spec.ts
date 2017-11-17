@@ -3,8 +3,6 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpModule, XHRBackend } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
-import { JsonApiModule } from 'angular2-jsonapi';
-
 import { DatastoreService } from './datastore.service';
 import { ProductService } from './product.service';
 

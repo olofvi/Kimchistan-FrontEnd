@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
-import {Product} from './models/product';
-import {Payment} from './models/payment';
-import {ProductService} from './service/product.service';
-import {PaymentService} from './service/payment.service';
-import {ShoppingCartService} from './service/shoppingcart.service';
-import {OrderService} from './service/order.service';
+import { Component } from '@angular/core';
+import { Product } from './models/product';
+import { Payment } from './models/payment';
+import { ProductService } from './service/product.service';
+import { PaymentService } from './service/payment.service';
+import { ShoppingCartService } from './service/shoppingcart.service';
+import { OrderService } from './service/order.service';
 
 @Component({
   selector: 'app-root',

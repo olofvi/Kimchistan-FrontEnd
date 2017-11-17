@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {DatastoreService} from './datastore.service';
-import {Payment} from '../models/payment';
-import {Http} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { DatastoreService } from './datastore.service';
+import { Payment } from '../models/payment';
+import { Http } from '@angular/http';
 
 
 @Injectable()

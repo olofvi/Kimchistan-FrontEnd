@@ -1,6 +1,6 @@
-import {TestBed, inject} from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 
-import {ShoppingCartService} from './shoppingcart.service';
+import { ShoppingCartService } from './shoppingcart.service';
 
 describe('ShoppingCartService', () => {
   let service;
