@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {DatastoreService} from './datastore.service';
 import {Payment} from '../models/payment';
-import {ErrorResponse} from 'angular2-jsonapi';
 import {Http} from '@angular/http';
 
 
@@ -22,7 +21,7 @@ export class PaymentService {
   }
 
   createPayment(token: any, amount: any) {
-    const apiUrl = 'http://localhost:3000/api/v1'
+    const apiUrl = 'https://kimchistan-api.herokuapp.com/api/v1'
     const payload = {
       data: {
         attributes: {
