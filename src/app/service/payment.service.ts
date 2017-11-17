@@ -2,12 +2,13 @@ import {Injectable} from '@angular/core';
 import {DatastoreService} from './datastore.service';
 import {Payment} from '../models/payment';
 import {ErrorResponse} from 'angular2-jsonapi';
+import {Http} from '@angular/http';
 
 
 @Injectable()
 export class PaymentService {
 
-  constructor(private datastore: DatastoreService) {
+  constructor(private datastore: DatastoreService, private http: Http) {
   }
 
   create(token: any, amount: any) {
@@ -18,6 +19,22 @@ export class PaymentService {
     });
 
     return payment.save();
+  }
+
+  createPayment(token: any, amount: any) {
+    const apiUrl = 'http://localhost:3000/api/v1'
+    const payload = {
+      data: {
+        attributes: {
+          email: token.email,
+          token: token.id,
+          amount: amount
+        }
+      }
+    }
+
+    return this.http.post(`${apiUrl}/payments`, payload)
+      .map(res => res.json());
   }
 }
 

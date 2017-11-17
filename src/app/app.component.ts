@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { Product } from './models/product';
-import { Payment } from './models/payment';
-import { ProductService } from './service/product.service';
-import { PaymentService } from './service/payment.service';
-import { ShoppingCartService } from './service/shoppingcart.service';
-import { OrderService } from './service/order.service';
-import { ErrorResponse } from 'angular2-jsonapi';
+import {Component} from '@angular/core';
+import {Product} from './models/product';
+import {Payment} from './models/payment';
+import {ProductService} from './service/product.service';
+import {PaymentService} from './service/payment.service';
+import {ShoppingCartService} from './service/shoppingcart.service';
+import {OrderService} from './service/order.service';
+import {ErrorResponse} from 'angular2-jsonapi';
 
 @Component({
   selector: 'app-root',
@@ -23,12 +23,10 @@ export class AppComponent {
   is_restaurant_closed;
   today: any;
 
-  constructor(
-    private productService: ProductService,
-    private cartSVC: ShoppingCartService,
-    private paymentService: PaymentService,
-    private orderService: OrderService
-  ) {
+  constructor(private productService: ProductService,
+              private cartSVC: ShoppingCartService,
+              private paymentService: PaymentService,
+              private orderService: OrderService) {
     this.getProducts();
     this.reAddProducts();
     this.weekday();
@@ -42,7 +40,7 @@ export class AppComponent {
   isRestaurantOpen() {
     this.is_restaurant_closed = ((0 == this.today.getDay())
       || (6 == this.today.getDay() && (12 > this.today.getHours() || this.today.getHours() >= 16))
-      || (11 > this.today.getHours() || this.today.getHours()+'.'+this.today.getMinutes() >= '18.30') );
+      || (11 > this.today.getHours() || this.today.getHours() + '.' + this.today.getMinutes() >= '18.30') );
   }
 
   getProducts(): void {
@@ -64,16 +62,15 @@ export class AppComponent {
       amount: amount,
       token: (token: any) => {
         this.paymentService
-          .create(token, amount)
+          .createPayment(token, amount)
           .subscribe(
-            ({ email }) => this.orderService.create(this.cart, email),
-            (error) => {
-              if (error instanceof ErrorResponse) {
-                console.log(error);
-              }
-            }
+            (res) => {
+              this.orderService.create(this.cart, res.charge.receipt_email)
+              alert(res.charge.description);
+            },
+            (error) => alert(JSON.parse(error._body).errors)
           );
-        }
+      }
     });
 
     handler.open({
