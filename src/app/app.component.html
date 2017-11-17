@@ -119,7 +119,7 @@
                     </button>
                   </ng-container>
                   <ng-container *ngIf="ingredient.available != true">
-                    <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                    <button class="dropdown-item disabled line-through-text" id="{{product.name}}_{{ingredient.name}}">
                       {{ingredient.name}} (89 kr)
                     </button>
                   </ng-container>
@@ -220,7 +220,7 @@
                     </button>
                   </ng-container>
                   <ng-container *ngIf="ingredient.available != true">
-                    <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                    <button class="dropdown-item disabled line-through-text" id="{{product.name}}_{{ingredient.name}}">
                       {{ingredient.name}} ({{ingredient.price + product.price}} kr)
                     </button>
                   </ng-container>
@@ -244,7 +244,7 @@
         </ng-container>
         <ng-container *ngIf="product.available != true">
           <div class="col-md-4 centered">
-            <h3 class="unavailable">{{product.name}}</h3>
+            <h3 class="unavailable line-through-text">{{product.name}}</h3>
             <img class="product_image_unavailable" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
                  src={{product.image}}/>
             <br>
@@ -253,7 +253,7 @@
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <ng-container *ngFor="let ingredient of product.ingredients">
                   <ng-container *ngIf="ingredient.available == true">
-                    <button class="dropdown-item disabled unavaiable" id="{{product.name}}_{{ingredient.name}}">
+                    <button class="dropdown-item disabled unavaiable line-through-text" id="{{product.name}}_{{ingredient.name}}">
                       {{ingredient.name}} ({{ingredient.price + product.price}} kr)
                     </button>
                   </ng-container>
