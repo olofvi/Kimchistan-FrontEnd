@@ -49,8 +49,9 @@ export class ShoppingCartService {
   };
 
   saveCart() {
+    let day_added = this.today.getDay().toString();
     localStorage.setItem('cart', JSON.stringify(this.cart));
-    localStorage.setItem('date', this.today.getDay());
+    localStorage.setItem('date', day_added);
   }
 
   loadCart(today) {

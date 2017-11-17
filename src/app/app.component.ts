@@ -37,7 +37,7 @@ export class AppComponent {
   isRestaurantOpen() {
     this.is_restaurant_closed = ((0 == this.today.getDay())
       || (6 == this.today.getDay() && (12 > this.today.getHours() || this.today.getHours() >= 16))
-      || (11 > this.today.getHours() || this.today.getHours()+'.'+this.today.getMinutes() >= '18.30') );
+      || (11 > this.today.getHours() || (this.today.getHours() + '.' + this.today.getMinutes()) >= '18.30') );
   }
 
   getProducts(): void {
