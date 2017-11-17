@@ -48,14 +48,24 @@
               <button type="button" id="remove_all" class="btn btn-clear" (click)="clearCart()">
                 Töm korgen
               </button>
+              <ng-container *ngIf="!is_restaurant_closed">
               <div class="payment">
                 <button class="btn btn-pay" (click)="openCheckout()">Betala</button>
                 <h3>{{errorMessage}}</h3>
               </div>
+              </ng-container>
+              <ng-container *ngIf="is_restaurant_closed">
+                <div class="payment">
+                  <button class="btn btn-pay disabled">
+                    Restaurangen är stängd
+                  </button>
+                </div>
+              </ng-container>
             </div>
           </div>
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse" id="showing_hide">
-            Visa/göm beställningsdetaljer</a>
+            Visa/göm beställningsdetaljer
+          </a>
         </div>
       </div>
     </div>
@@ -73,7 +83,7 @@
         <h5>Mån-Fre 11-19</h5>
         <h5>Lör: 12-16.30</h5>
         <h5>Sön: Stängt</h5>
-        <h5>Beställ mellan 11-18:30</h5>
+        <h5>Beställ senast 30 min innan stängning</h5>
       </div>
       <div class="col-md-6">
         <h5>Beställ så här:</h5>
@@ -106,7 +116,7 @@
                     </button>
                   </ng-container>
                   <ng-container *ngIf="ingredient.available != true">
-                    <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                    <button class="dropdown-item disabled line-through-text" id="{{product.name}}_{{ingredient.name}}">
                       {{ingredient.name}} (89 kr)
                     </button>
                   </ng-container>
@@ -209,7 +219,7 @@
                     </button>
                   </ng-container>
                   <ng-container *ngIf="ingredient.available != true">
-                    <button class="dropdown-item disabled" id="{{product.name}}_{{ingredient.name}}">
+                    <button class="dropdown-item disabled line-through-text" id="{{product.name}}_{{ingredient.name}}">
                       {{ingredient.name}} ({{ingredient.price + product.price}} kr)
                     </button>
                   </ng-container>
@@ -233,7 +243,7 @@
         </ng-container>
         <ng-container *ngIf="product.available != true">
           <div class="col-md-4 centered">
-            <h3 class="unavailable">{{product.name}}</h3>
+            <h3 class="unavailable line-through-text">{{product.name}}</h3>
             <img class="product_image_unavailable" data-toggle="modal" attr.data-target="#productModal{{product.id}}"
                  src={{product.image}}/>
             <br>
@@ -243,7 +253,7 @@
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <ng-container *ngFor="let ingredient of product.ingredients">
                   <ng-container *ngIf="ingredient.available == true">
-                    <button class="dropdown-item disabled unavaiable" id="{{product.name}}_{{ingredient.name}}">
+                    <button class="dropdown-item disabled unavaiable line-through-text" id="{{product.name}}_{{ingredient.name}}">
                       {{ingredient.name}} ({{ingredient.price + product.price}} kr)
                     </button>
                   </ng-container>
