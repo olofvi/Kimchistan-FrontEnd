@@ -249,11 +249,9 @@
               <button class="btn btn-primary disabled" id="dropdown_{{product.name}}" ngbDropdownToggle>Slutsåld</button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <ng-container *ngFor="let ingredient of product.ingredients">
-                  <ng-container *ngIf="ingredient.available == true">
-                    <button class="dropdown-item disabled unavaiable line-through-text" id="{{product.name}}_{{ingredient.name}}">
-                      {{ingredient.name}} ({{ingredient.price + product.price}} kr)
-                    </button>
-                  </ng-container>
+                  <button class="dropdown-item disabled unavaiable line-through-text" id="{{product.name}}_{{ingredient.name}}">
+                    {{ingredient.name}} ({{ingredient.price + product.price}} kr)
+                  </button>
                 </ng-container>
               </div>
             </div>
