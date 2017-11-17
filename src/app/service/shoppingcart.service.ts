@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 
 export class ShoppingCartService {
   cart: any = [];
+  today = new Date
 
   addToCart(product_id: string, product_name: string, price: number, ingredient_id: string, ingredient_name: string) {
     let itemFound = false;
@@ -49,7 +50,7 @@ export class ShoppingCartService {
 
   saveCart() {
     localStorage.setItem('cart', JSON.stringify(this.cart));
-    localStorage.setItem('date', new Date);
+    localStorage.setItem('date', this.today.getDay());
   }
 
   loadCart(today) {

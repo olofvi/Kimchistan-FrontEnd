@@ -47,7 +47,6 @@ export class AppComponent {
       });
   }
 
-
   openCheckout() {
     let amount = this.total_price * 100;
     const handler = (<any>window).StripeCheckout.configure({
@@ -86,7 +85,7 @@ export class AppComponent {
 
   reAddProducts() {
     if (localStorage.length > 0) {
-      this.cartSVC.loadCart(this.today);
+      this.cartSVC.loadCart(this.today.getDay());
       this.showProducts();
     }
   }
