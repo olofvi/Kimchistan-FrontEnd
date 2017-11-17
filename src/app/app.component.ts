@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Product } from './models/product';
-import { Payment} from "./models/payment";
+import { Payment } from './models/payment';
 import { ProductService } from './service/product.service';
-import { PaymentService} from "./service/payment.service";
+import { PaymentService } from './service/payment.service';
 import { ShoppingCartService } from './service/shoppingcart.service';
+import { OrderService } from './service/order.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,8 @@ export class AppComponent {
 
   constructor(private productService: ProductService,
               private cartSVC: ShoppingCartService,
-              private paymentService: PaymentService) {
+              private paymentService: PaymentService,
+              private orderService: OrderService) {
     this.getProducts();
     this.weekday();
     this.isRestaurantOpen();
@@ -48,7 +50,8 @@ export class AppComponent {
   }
 
   openCheckout() {
-    let amount = this.total_price * 100;
+    const amount = this.total_price * 100;
+
     const handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_tzGL0gkTTfi6MspvJQhEo6Hq',
       locale: 'Sv',
@@ -56,7 +59,15 @@ export class AppComponent {
       currency: 'sek',
       amount: amount,
       token: (token: any) => {
-        this.paymentService.create(token, amount );
+        this.paymentService
+          .createPayment(token, amount)
+          .subscribe(
+            (res) => {
+              this.orderService.create(this.cart, res.charge.receipt_email)
+              alert(res.charge.description);
+            },
+            (error) => alert(JSON.parse(error._body).errors)
+          );
       }
     });
 
@@ -64,7 +75,7 @@ export class AppComponent {
       name: 'Kimchistan',
       amount: amount
     });
-  };
+  }
 
   addProduct(product_id: string, product_name: string, product_price: number, ingredient_id: string, ingredient_name: string, ingredient_price: number) {
     let price: number;

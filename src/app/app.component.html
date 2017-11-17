@@ -2,7 +2,8 @@
   <nav class="fixed-header">
     <div class="header-text">
       <a data-toggle="collapse" data-parent="#accordion" href="#collapse" id="cart_showing">
-        <i class="fa fa-shopping-basket fa-2x" aria-hidden="true"> {{total_cart_items}} i korgen ({{total_price}} kr)</i></a>
+        <i class="fa fa-shopping-basket fa-2x" aria-hidden="true"> {{total_cart_items}} i korgen ({{total_price}}
+          kr)</i></a>
       <br>
       <div class="panel-group" id="accordion">
         <div class="panel panel-default">
@@ -48,11 +49,10 @@
                 Töm korgen
               </button>
               <ng-container *ngIf="!is_restaurant_closed">
-                <div class="payment">
-                  <button class="btn btn-pay" (click)="openCheckout()">
-                    Betala
-                  </button>
-                </div>
+              <div class="payment">
+                <button class="btn btn-pay" (click)="openCheckout()">Betala</button>
+                <h3>{{errorMessage}}</h3>
+              </div>
               </ng-container>
               <ng-container *ngIf="is_restaurant_closed">
                 <div class="payment">
@@ -131,7 +131,9 @@
                  src={{product.image}}/>
             <br>
             <div ngbDropdown class="d-inline-block">
-              <button class="btn btn-primary disabled unavaiable" id="dropdown_{{product.name}}" ngbDropdownToggle>Slutsåld</button>
+              <button class="btn btn-primary disabled unavaiable" id="dropdown_{{product.name}}" ngbDropdownToggle>
+                Slutsåld
+              </button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <ng-container *ngFor="let ingredient of product.ingredients">
                   <button class="dropdown-item disabled unavaiable" id="{{product.name}}_{{ingredient.name}}">
@@ -259,7 +261,8 @@
                  src={{product.image}}/>
             <br>
             <div ngbDropdown class="d-inline-block">
-              <button class="btn btn-primary disabled" id="dropdown_{{product.name}}" ngbDropdownToggle>Slutsåld</button>
+              <button class="btn btn-primary disabled" id="dropdown_{{product.name}}" ngbDropdownToggle>Slutsåld
+              </button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <ng-container *ngFor="let ingredient of product.ingredients">
                   <button class="dropdown-item disabled unavaiable line-through-text" id="{{product.name}}_{{ingredient.name}}">

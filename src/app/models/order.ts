@@ -1,16 +1,12 @@
 import { JsonApiModelConfig, JsonApiModel, Attribute } from 'angular2-jsonapi';
 
 @JsonApiModelConfig({
-  type: 'payments'
+  type: 'orders'
 })
-export class Payment extends JsonApiModel {
+export class Order extends JsonApiModel {
   @Attribute()
   email: string;
 
   @Attribute()
-  token: string;
-
-  @Attribute()
-  amount: number;
-
+  cart: object;
 }
