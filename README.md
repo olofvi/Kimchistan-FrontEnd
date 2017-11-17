@@ -1,11 +1,32 @@
 # KimchistanFrontEnd
 
-Final project August 2017
+Final project for the August 2017 cohort.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
+
+We were approched by a client who wanted a website for a restaurant, where customers can order food online and pick it up at the restaurant after 30 minutes.
+
+
+## First release
+In the first release we put focus on the basic requirement for a functional website, while still aiming to fit the clients conditions regarding the styling. 
+
+A customer can visit the website and get restaurant information, choose a dish with a specific ingredient, and pay for the order. After an order is placed and paid for, the kitchen receives an email with pick up and order details. 
+
+Other features:
+* Displaying a map of the restaurant location
+* Showing restaurant info in the footer
+* Showing order instructions over the header background picture
+* The order details show up in a sticky collapsable header after a product gets added to the cart
+* In the cart header a user can remove from cart, clear cart, and pay with Stripe.
+* Allowing a user to click a dish picture to open a modal with a larger picture and dish description
+* Daily dishes rotates during Monday-Friday
+* Unavailable dishes and ingredients are disabled and can't be added to cart
+* The cart information is stored in localstorage so the page can get refreshed
+* Localstorage gets cleared at midnight
+
 ## Deployment
-We automatically deploy this app with [Heroku](https://www.heroku.com/) through [Github](https://github.com/) and [Semaphore](https://semaphoreci.com/).
+We automatically deploy this app with [Heroku](https://www.heroku.com/) and [Surge](https://surge.sh/) through [Github](https://github.com/) and [Semaphore](https://semaphoreci.com/).
 
 ## Development server
 

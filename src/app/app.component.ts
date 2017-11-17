@@ -27,9 +27,9 @@ export class AppComponent {
               private paymentService: PaymentService,
               private orderService: OrderService) {
     this.getProducts();
-    this.reAddProducts();
     this.weekday();
     this.isRestaurantOpen();
+    this.reAddProducts();
   }
 
   weekday() {
@@ -39,7 +39,7 @@ export class AppComponent {
   isRestaurantOpen() {
     this.is_restaurant_closed = ((0 == this.today.getDay())
       || (6 == this.today.getDay() && (12 > this.today.getHours() || this.today.getHours() >= 16))
-      || (11 > this.today.getHours() || this.today.getHours() + '.' + this.today.getMinutes() >= '18.30') );
+      || (11 > this.today.getHours() || (this.today.getHours() + '.' + this.today.getMinutes()) >= '18.30') );
   }
 
   getProducts(): void {
@@ -48,7 +48,6 @@ export class AppComponent {
         this.products = products;
       });
   }
-
 
   openCheckout() {
     const amount = this.total_price * 100;
@@ -97,7 +96,7 @@ export class AppComponent {
 
   reAddProducts() {
     if (localStorage.length > 0) {
-      this.cartSVC.loadCart();
+      this.cartSVC.loadCart(this.today.getDay());
       this.showProducts();
     }
   }
