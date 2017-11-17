@@ -5,6 +5,7 @@ import { ProductService } from './service/product.service';
 import { PaymentService } from './service/payment.service';
 import { ShoppingCartService } from './service/shoppingcart.service';
 import { OrderService } from './service/order.service';
+import { ErrorResponse } from 'angular2-jsonapi';
 
 @Component({
   selector: 'app-root',
@@ -57,10 +58,15 @@ export class AppComponent {
       token: (token: any) => {
         this.paymentService
           .create(token, amount)
-          .subscribe(({ email }) => {
-            this.orderService.create(this.cart, email);
-          });
-        },
+          .subscribe(
+            ({ email }) => this.orderService.create(this.cart, email),
+            (error) => {
+              if (error instanceof ErrorResponse) {
+                console.log(error);
+              }
+            }
+          );
+        }
     });
 
     handler.open({
