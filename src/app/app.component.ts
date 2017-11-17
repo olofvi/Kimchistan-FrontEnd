@@ -18,6 +18,7 @@ export class AppComponent {
   cart: any = [];
   total_price: number;
   total_cart_items: number;
+  is_restaurant_closed;
   today: any;
 
   constructor(private productService: ProductService,
@@ -26,10 +27,17 @@ export class AppComponent {
     this.getProducts();
     this.reAddProducts();
     this.weekday();
+    this.isRestaurantOpen();
   }
 
   weekday() {
-    this.today = new Date;
+    this.today = new Date(2017, 10, 19, 12, 0, 0, 0);
+  }
+
+  isRestaurantOpen() {
+    this.is_restaurant_closed = ((0 == this.today.getDay())
+      || (6 == this.today.getDay() && (12 > this.today.getHours() || this.today.getHours() >= 16))
+      || (11 > this.today.getHours() || this.today.getHours()+'.'+this.today.getMinutes() >= '18.30') );
   }
 
   getProducts(): void {
@@ -93,4 +101,6 @@ export class AppComponent {
     this.showProducts();
     this.cartSVC.showTotal();
   }
+
+
 }

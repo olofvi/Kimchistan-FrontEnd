@@ -47,28 +47,35 @@
               <button type="button" id="remove_all" class="btn btn-clear" (click)="clearCart()">
                 Töm korgen
               </button>
-              <ng-container *ngIf="!((0 == today.getDay())
-               || (6 == today.getDay() && (12 > today.getHours() || today.getHours() >= 16))
-                || (11 > today.getHours() || today.getHours()+'.'+today.getMinutes() >= '18.30') )">
+              <ng-container *ngIf="!is_restaurant_closed">
                 <div class="payment">
                   <button class="btn btn-pay" (click)="openCheckout()">
                     Betala
                   </button>
                 </div>
               </ng-container>
-              <ng-container *ngIf="( (0 == today.getDay())
-               || (6 == today.getDay() && (12 > today.getHours() || today.getHours() >= 16))
-                || (11 > today.getHours() || today.getHours()+'.'+today.getMinutes() >= '18.30') )">
+              <ng-container *ngIf="is_restaurant_closed">
                 <div class="payment">
                   <button class="btn btn-pay disabled">
                     Restaurangen är stängd
                   </button>
                 </div>
               </ng-container>
+              <!--<ng-container *ngIf="!((0 == today.getDay())-->
+               <!--|| (6 == today.getDay() && (12 > today.getHours() || today.getHours() >= 16))-->
+                <!--|| (11 > today.getHours() || today.getHours()+'.'+today.getMinutes() >= '18.30') )">-->
+                <!---->
+              <!--</ng-container>-->
+              <!--<ng-container *ngIf="( (0 == today.getDay())-->
+               <!--|| (6 == today.getDay() && (12 > today.getHours() || today.getHours() >= 16))-->
+                <!--|| (11 > today.getHours() || today.getHours()+'.'+today.getMinutes() >= '18.30') )">-->
+                <!---->
+              <!--</ng-container>-->
             </div>
           </div>
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse" id="showing_hide">
-            Visa/göm beställningsdetaljer</a>
+            Visa/göm beställningsdetaljer
+          </a>
         </div>
       </div>
     </div>
