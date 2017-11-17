@@ -25,9 +25,9 @@ export class AppComponent {
               private cartSVC: ShoppingCartService,
               private paymentService: PaymentService) {
     this.getProducts();
-    this.reAddProducts();
     this.weekday();
     this.isRestaurantOpen();
+    this.reAddProducts();
   }
 
   weekday() {
@@ -86,7 +86,7 @@ export class AppComponent {
 
   reAddProducts() {
     if (localStorage.length > 0) {
-      this.cartSVC.loadCart();
+      this.cartSVC.loadCart(this.today);
       this.showProducts();
     }
   }
