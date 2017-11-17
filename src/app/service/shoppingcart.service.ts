@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 
 export class ShoppingCartService {
   cart: any = [];
+  today = new Date
 
   addToCart(product_id: string, product_name: string, price: number, ingredient_id: string, ingredient_name: string) {
     let itemFound = false;
@@ -48,11 +49,23 @@ export class ShoppingCartService {
   };
 
   saveCart() {
+    let day_added = this.today.getDay().toString();
     localStorage.setItem('cart', JSON.stringify(this.cart));
+    localStorage.setItem('date', day_added);
   }
 
-  loadCart() {
-    this.cart = JSON.parse(localStorage.getItem('cart'));
+  loadCart(today) {
+    let compare_date = localStorage.getItem('date');
+    console.log('compare_date: ' + compare_date)
+    console.log('today: ' + today)
+    if (compare_date == today) {
+      console.log('true: ')
+      this.cart = JSON.parse(localStorage.getItem('cart'));
+    } else if (compare_date != today) {
+      console.log('false: ')
+      localStorage.removeItem('cart');
+      localStorage.removeItem('date');
+    }
   }
 
   clearCart() {
