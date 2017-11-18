@@ -5,6 +5,7 @@ import { ProductService } from './service/product.service';
 import { PaymentService } from './service/payment.service';
 import { ShoppingCartService } from './service/shoppingcart.service';
 import { OrderService } from './service/order.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -64,9 +65,11 @@ export class AppComponent {
           .subscribe(
             (res) => {
               this.orderService.create(this.cart, res.charge.receipt_email)
-              swal('Tack!', res.charge.description, 'Success');
+              swal('Tack!', res.charge.description, 'success');
+              this.cartSVC.clearCart();
+              this.showProducts();
             },
-            (error) => swal('Tyvärr', (JSON.parse(error._body).errors), 'Error')
+            (error) => swal('Tyvärr', (JSON.parse(error._body).errors), 'error')
           );
       }
     });
