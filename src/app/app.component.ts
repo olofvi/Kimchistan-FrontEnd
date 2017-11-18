@@ -64,9 +64,9 @@ export class AppComponent {
           .subscribe(
             (res) => {
               this.orderService.create(this.cart, res.charge.receipt_email)
-              alert(res.charge.description);
+              swal('Tack!', res.charge.description, 'Success');
             },
-            (error) => alert(JSON.parse(error._body).errors)
+            (error) => swal('Tyvärr', (JSON.parse(error._body).errors), 'Error')
           );
       }
     });
