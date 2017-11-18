@@ -27,8 +27,7 @@ module.exports = function (config) {
     reporters: ['progress', 'kjhtml', 'coverage', 'coveralls'],
     coverageReporter: {
       type: 'lcov', // lcov or lcovonly are required for generating lcov.info files
-      dir: 'coverage/',
-      repoToken: 'cGFQTj6dWWr7Pl93BqI0zjonTTancl38G'
+      dir: 'coverage/'
     },
     port: 9876,
     colors: true,
