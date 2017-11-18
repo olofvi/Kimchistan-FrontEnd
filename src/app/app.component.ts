@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { Product } from './models/product';
-import { Payment } from './models/payment';
-import { ProductService } from './service/product.service';
-import { PaymentService } from './service/payment.service';
-import { ShoppingCartService } from './service/shoppingcart.service';
-import { OrderService } from './service/order.service';
+import {Component} from '@angular/core';
+import {Product} from './models/product';
+import {Payment} from './models/payment';
+import {ProductService} from './service/product.service';
+import {PaymentService} from './service/payment.service';
+import {ShoppingCartService} from './service/shoppingcart.service';
+import {OrderService} from './service/order.service';
 import swal from 'sweetalert2';
 
 @Component({
@@ -15,8 +15,8 @@ import swal from 'sweetalert2';
 export class AppComponent {
   products: Product[];
   payments: Payment[];
-  lat: number = 59.334248;
-  lng: number = 18.063829;
+  lat = 59.334248;
+  lng = 18.063829;
   cart: any = [];
   total_price: number;
   total_cart_items: number;
@@ -40,7 +40,7 @@ export class AppComponent {
   isRestaurantOpen() {
     this.is_restaurant_closed = ((0 == this.today.getDay())
       || (6 == this.today.getDay() && (12 > this.today.getHours() || this.today.getHours() >= 16))
-      || (11 > this.today.getHours() || (this.today.getHours() + '.' + this.today.getMinutes()) >= '18.30') );
+      || (11 > this.today.getHours() || (this.today.getHours() + '.' + this.today.getMinutes()) >= '18:30') );
   }
 
   getProducts(): void {
@@ -64,12 +64,14 @@ export class AppComponent {
           .createPayment(token, amount)
           .subscribe(
             (res) => {
-              this.orderService.create(this.cart, res.charge.receipt_email)
+              this.orderService.create(this.cart, res.charge.receipt_email);
               swal('Tack!', res.charge.description, 'success');
               this.cartSVC.clearCart();
               this.showProducts();
             },
-            (error) => swal('Tyvärr', (JSON.parse(error._body).errors), 'error')
+            (error) => {
+              swal('Tyvärr', (JSON.parse(error._body).errors), 'error');
+            }
           );
       }
     });

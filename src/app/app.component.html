@@ -2,8 +2,9 @@
   <nav class="fixed-header">
     <div class="header-text">
       <a data-toggle="collapse" data-parent="#accordion" href="#collapse" id="cart_showing">
-        <i class="fa fa-shopping-basket fa-2x" aria-hidden="true"> {{total_cart_items}} i korgen ({{total_price}}
-          kr)</i></a>
+        <i class="fa fa-shopping-basket fa-2x" aria-hidden="true"> </i>
+        <span class="order-header">  &nbsp; {{total_cart_items}} i korgen ({{total_price}} kr)</span>
+      </a>
       <br>
       <div class="panel-group" id="accordion">
         <div class="panel panel-default">
@@ -14,7 +15,7 @@
                   <div class="show-on-web">
                     {{item.product_name}} med {{item.ingredient_name}} ({{item.price}} kr) x{{item.item_quantity}}
                     <a class="btn-remove-web" id="remove_{{item.product_name}}-{{item.ingredient_name}}"
-                            (click)="removeProduct(item.product_id, item.product_name, item.price, item.ingredient_id, item.ingredient_name)">
+                       (click)="removeProduct(item.product_id, item.product_name, item.price, item.ingredient_id, item.ingredient_name)">
                       Ta bort
                     </a>
                   </div>
@@ -22,7 +23,7 @@
                     {{item.product_name}} med {{item.ingredient_name}} ({{item.price}} kr) x{{item.item_quantity}}
                     <br>
                     <a class="btn-remove-mobile" id="remove_{{item.product_name}}-{{item.ingredient_name}}"
-                            (click)="removeProduct(item.product_id, item.product_name, item.price, item.ingredient_id, item.ingredient_name)">
+                       (click)="removeProduct(item.product_id, item.product_name, item.price, item.ingredient_id, item.ingredient_name)">
                       Ta bort
                     </a>
                   </div>
@@ -31,7 +32,7 @@
                   <div class="show-on-web">
                     {{item.product_name}} ({{item.price}} kr) x{{item.item_quantity}}
                     <a class="btn-remove-web" id="remove{{item.product_name}}"
-                            (click)="removeProduct(item.product_id, item.product_name, item.price)">
+                       (click)="removeProduct(item.product_id, item.product_name, item.price)">
                       Ta bort
                     </a>
                   </div>
@@ -49,10 +50,10 @@
                 Töm korgen
               </button>
               <ng-container *ngIf="!is_restaurant_closed">
-              <div class="payment">
-                <button class="btn btn-pay" (click)="openCheckout()">Betala</button>
-                <h3>{{errorMessage}}</h3>
-              </div>
+                <div class="payment">
+                  <button class="btn btn-pay" (click)="openCheckout()">Betala</button>
+                  <h3>{{errorMessage}}</h3>
+                </div>
               </ng-container>
               <ng-container *ngIf="is_restaurant_closed">
                 <div class="payment">
@@ -72,10 +73,11 @@
   </nav>
 </ng-container>
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <img class="logo" src="/assets/kimchistan.jpg">
-    </div>
+  <div id="logo">
+    <ul class="logo-container">
+      <li><a href="#"><img class="logo" id="logo-navbar-middle" src="/assets/kimchistan.jpg" alt="Logo Thing main logo"></a>
+      </li>
+    </ul>
   </div>
   <div class="header-text">
     <div class="row row-bottom-margin">
@@ -265,7 +267,8 @@
               </button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <ng-container *ngFor="let ingredient of product.ingredients">
-                  <button class="dropdown-item disabled unavaiable line-through-text" id="{{product.name}}_{{ingredient.name}}">
+                  <button class="dropdown-item disabled unavaiable line-through-text"
+                          id="{{product.name}}_{{ingredient.name}}">
                     {{ingredient.name}} ({{ingredient.price + product.price}} kr)
                   </button>
                 </ng-container>
