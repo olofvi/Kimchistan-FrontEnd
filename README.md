@@ -1,5 +1,8 @@
 # KimchistanFrontEnd
 
+[![Coverage Status](https://coveralls.io/repos/github/CraftAcademy/Kimchistan-FrontEnd/badge.svg)](https://coveralls.io/github/CraftAcademy/Kimchistan-FrontEnd)
+
+
 Final project for the August 2017 cohort.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
