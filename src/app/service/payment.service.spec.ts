@@ -30,8 +30,8 @@ describe('MockBackend: PaymentService', () => {
   beforeEach(() => {
     payments = [{
       "type": "payments",
-      "email" : "olofvi89@gmail.com",
-      "token" : "tok_1BO9zFCiJmOu5UHgpZLpxCM4"}
+      "email": "olofvi89@gmail.com",
+      "token": "tok_1BO9zFCiJmOu5UHgpZLpxCM4"}
     ]
   });
 
